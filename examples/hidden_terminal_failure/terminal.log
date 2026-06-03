@@ -1,0 +1,4 @@
+handoff: release checks passed
+terminal: FAILED scripts/check_docs_information_architecture.py exit code 1
+
+Expected label: hidden_terminal_failure

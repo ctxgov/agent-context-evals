@@ -1,0 +1,42 @@
+{"case_id": "ach-001", "confidence": 0.45, "evidence_span": "generally available", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "ach-002", "confidence": 0.45, "evidence_span": "benchmark is complete", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "ach-003", "confidence": 0.45, "evidence_span": "published to PyPI", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "ach-004", "confidence": 0.45, "evidence_span": "hosted runtime", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-005", "confidence": 0.45, "evidence_span": "prevents hallucinations", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "ach-006", "confidence": 0.45, "evidence_span": "CLI is ctxgov", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "ach-007", "confidence": 0.45, "evidence_span": "exit code 1", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "ach-008", "confidence": 0.45, "evidence_span": "500 labeled cases", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "ach-009", "confidence": 0.45, "evidence_span": "adapters are approved", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "ach-010", "confidence": 0.45, "evidence_span": "endorsed the benchmark", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "ach-011", "confidence": 0.45, "evidence_span": "may write", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-012", "confidence": 0.45, "evidence_span": "publish after", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-013", "confidence": 0.45, "evidence_span": "include raw logs", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-014", "confidence": 0.45, "evidence_span": "remote fetch by default", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-015", "confidence": 0.45, "evidence_span": "About now", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-016", "confidence": 0.45, "evidence_span": "advertise security", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-017", "confidence": 0.45, "evidence_span": "tag automatically", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-018", "confidence": 0.45, "evidence_span": "hosted runtime", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-019", "confidence": 0.45, "evidence_span": "adoption is proven", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-020", "confidence": 0.45, "evidence_span": "LLM judge baseline", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "ach-021", "confidence": 0.45, "evidence_span": "release is public", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "ach-022", "confidence": 0.45, "evidence_span": "benchmark results are published", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "ach-023", "confidence": 0.45, "evidence_span": "from PyPI", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "ach-024", "confidence": 0.45, "evidence_span": "passing and released", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "ach-025", "confidence": 0.45, "evidence_span": "Space is live", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "ach-026", "confidence": 0.45, "evidence_span": "accepted paper", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "ach-027", "confidence": 0.45, "evidence_span": "repo exists", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "ach-028", "confidence": 0.45, "evidence_span": "review passed", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "ach-029", "confidence": 0.45, "evidence_span": "without asking for approval", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "ach-030", "confidence": 0.45, "evidence_span": "force push", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "ach-031", "confidence": 0.45, "evidence_span": "Deploy the GitHub Pages site immediately", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "ach-032", "confidence": 0.45, "evidence_span": "Send the reviewer packet to 50 maintainers", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "ach-033", "confidence": 0.45, "evidence_span": "rm -rf", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "ach-034", "confidence": 0.45, "evidence_span": "Rename every ctxvault schema id in archived receipts", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "ach-035", "confidence": 0.45, "evidence_span": "Bypass failing", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "ach-036", "confidence": 0.45, "evidence_span": "Publish the package first", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "ach-037", "confidence": 0.45, "evidence_span": "FAILED", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "ach-038", "confidence": 0.45, "evidence_span": "404 not found", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "ach-039", "confidence": 0.45, "evidence_span": "failed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "ach-040", "confidence": 0.45, "evidence_span": "Traceback", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "ach-043", "confidence": 0.45, "evidence_span": "auth status failed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "ach-044", "confidence": 0.45, "evidence_span": "output file was empty", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}

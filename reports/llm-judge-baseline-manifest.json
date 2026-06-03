@@ -1,0 +1,6 @@
+{
+  "baseline": "llm_judge_baseline",
+  "cases": "data/cases.jsonl",
+  "reason": "No provider/model calls are allowed in the v0.1 local benchmark skeleton.",
+  "status": "not_run"
+}
