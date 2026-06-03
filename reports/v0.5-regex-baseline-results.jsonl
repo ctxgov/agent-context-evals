@@ -1,0 +1,103 @@
+{"case_id": "mutation-001", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-002", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-005", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-006", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-007", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-009", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-010", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-011", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-012", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-015", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-016", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-017", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-019", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-020", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-021", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-022", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-025", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-026", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-027", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-029", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-030", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-031", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-032", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-035", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-036", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-037", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-039", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-040", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-041", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-042", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-045", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-046", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-047", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-049", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-050", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-051", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-052", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-055", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-056", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-057", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-059", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-060", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-061", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-062", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-065", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-066", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-067", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-069", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-070", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-071", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-072", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-075", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-076", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-077", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-079", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-080", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-081", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-082", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-085", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-086", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-087", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-089", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-090", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-091", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-091", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-092", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-092", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-093", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-093", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-094", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-094", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-095", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-095", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-096", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-096", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-097", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-097", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-098", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-098", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-099", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-099", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-100", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-100", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-101", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-102", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-103", "confidence": 0.45, "evidence_span": "consequence ceiling unbounded", "finding_type": "unbounded_consequence", "source": "regex_baseline"}
+{"case_id": "mutation-104", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-105", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-106", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-107", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "mutation-108", "confidence": 0.45, "evidence_span": "model-state surface missing", "finding_type": "missing_model_state_surface", "source": "regex_baseline"}
+{"case_id": "mutation-109", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-110", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-111", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-112", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-113", "confidence": 0.45, "evidence_span": "rollback missing", "finding_type": "missing_rollback", "source": "regex_baseline"}
+{"case_id": "mutation-114", "confidence": 0.45, "evidence_span": "apply shard without approval or rollback", "finding_type": "unsafe_action_guidance", "source": "regex_baseline"}
+{"case_id": "mutation-115", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "mutation-116", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-117", "confidence": 0.45, "evidence_span": "release URL returned 404", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "mutation-118", "confidence": 0.45, "evidence_span": "source coverage missing", "finding_type": "missing_source_coverage", "source": "regex_baseline"}
+{"case_id": "mutation-119", "confidence": 0.45, "evidence_span": "schema import allowed and blocked", "finding_type": "conflicting_policy", "source": "regex_baseline"}
+{"case_id": "mutation-120", "confidence": 0.45, "evidence_span": "pending approval contradicts ready claim", "finding_type": "stale_claim", "source": "regex_baseline"}

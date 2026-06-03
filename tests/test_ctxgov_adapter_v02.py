@@ -39,6 +39,7 @@ class CtxGovAdapterV02Tests(unittest.TestCase):
         self.assertEqual(map_ctxgov_finding("release_link_404"), "unsupported_release_claim")
         self.assertEqual(map_ctxgov_finding("package_registry_unverified"), "unsupported_release_claim")
         self.assertEqual(map_ctxgov_finding("release_artifact_missing"), "unsupported_release_claim")
+        self.assertIsNone(map_ctxgov_finding("memory_without_lifecycle_or_rollback"))
         self.assertEqual(map_ctxgov_finding("memory_missing_source_coverage"), "missing_source_coverage")
         self.assertEqual(map_ctxgov_finding("memory_missing_rollback"), "missing_rollback")
         self.assertEqual(map_ctxgov_finding("memory_unbounded_consequence"), "unbounded_consequence")
@@ -116,6 +117,17 @@ class CtxGovAdapterV02Tests(unittest.TestCase):
             self.assertTrue((path / "AGENTS.md").exists())
             self.assertTrue((path / "logs" / "terminal.log").exists())
             self.assertIn("deploy now", (path / "AGENTS.md").read_text(encoding="utf-8"))
+
+    def test_materializes_terminal_paraphrase_as_terminal_log(self) -> None:
+        case = {
+            "case_id": "terminal-paraphrase",
+            "source": "session_continuity_hidden_holdout_eval/deterministic-mutation",
+            "ai_context": "handoff says green while terminal records exit code 1.",
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            path = materialize_case_workspace(case, Path(tmp))
+
+            self.assertTrue((path / "logs" / "terminal.log").exists())
 
 
 if __name__ == "__main__":

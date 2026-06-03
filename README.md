@@ -1,6 +1,6 @@
 # Agent Context Health Eval
 
-Status: public v0.4 evaluation artifact for `ctxgov/agent-context-evals`.
+Status: public v0.5 evaluation artifact for `ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
 not a public benchmark claim, security evaluation, provider compatibility
@@ -45,6 +45,10 @@ agent-context-evals/
     v0.4/
       hard_negative_cases.jsonl
       hard_negative_labels.jsonl
+    v0.5/
+      mutation_cases.jsonl
+      mutation_labels.jsonl
+      mutation_manifest.json
   adapters/
     offline_context_adapters.py
   baselines/
@@ -55,6 +59,7 @@ agent-context-evals/
   scoring/
     score_findings.py
     metrics.py
+    score_multilabel.py
   review/
     independent-review-packet.md
     blinded-label-sheet.csv
@@ -72,6 +77,7 @@ agent-context-evals/
     v0.2-results.md
     v0.3-readiness.md
     v0.4-results.md
+    v0.5-results.md
   examples/
     clean_repo/
     stale_claim/
@@ -153,6 +159,32 @@ python3 scoring/score_findings.py \
   --predictions reports/v0.4-ctxgov-doctor-results.jsonl
 ```
 
+For v0.5 deterministic mutation and multi-label scoring:
+
+```bash
+python3 scripts/generate_v05_mutation_data.py
+
+python3 baselines/regex_baseline.py \
+  --cases data/v0.5/mutation_cases.jsonl \
+  --output reports/v0.5-regex-baseline-results.jsonl \
+  --multi-label
+
+python3 ctxgov_adapter/run_ctxgov.py \
+  --cases data/v0.5/mutation_cases.jsonl \
+  --output reports/v0.5-ctxgov-doctor-results.jsonl \
+  --mode doctor \
+  --projection none \
+  --ctxgov-root /path/to/ctxgov
+
+python3 scoring/score_multilabel.py \
+  --labels data/v0.5/mutation_labels.jsonl \
+  --predictions reports/v0.5-regex-baseline-results.jsonl
+
+python3 scoring/score_multilabel.py \
+  --labels data/v0.5/mutation_labels.jsonl \
+  --predictions reports/v0.5-ctxgov-doctor-results.jsonl
+```
+
 ## Case Schema
 
 Each `data/cases.jsonl` row contains:
@@ -184,10 +216,12 @@ The v0.1 and v0.2 data are synthetic or sanitized trace-pattern data. The v0.3
 review intake cases are public trace-derived material prepared for independent
 review, but the review is still pending. The v0.4 hard negatives are synthetic
 controls that reduce obvious regex false positives but do not replace
-independent review. These artifacts are useful for schema, scorer, adapter,
-workflow, and demo validation, not for public benchmark claims. They do not
-prove security coverage, agent safety, model reliability, provider
-compatibility, or real-world prevalence.
+independent review. The v0.5 mutation split is deterministic local scaffold
+data with multi-label cases and clean controls; it is a strong regression gate,
+not a public benchmark claim. These artifacts are useful for schema, scorer,
+adapter, workflow, and demo validation. They do not prove security coverage,
+agent safety, model reliability, provider compatibility, or real-world
+prevalence.
 
 Before a public benchmark claim, this needs real trace-derived cases with
 reviewer approval, hard negative controls, independent reviewer labels, and a
@@ -204,6 +238,8 @@ Ready for public project surface:
 - v0.4 hard-negative controls and tightened regex baseline
 - v0.4 native CtxGov doctor adapter run for release integrity, Memory X-Ray L1,
   and Task Shard coverage
+- v0.5 deterministic mutation data with 160 cases, 206 labels, 40 clean
+  controls, multi-label scoring, and native CtxGov doctor adapter run
 
 Not ready for benchmark claims:
 
@@ -211,15 +247,14 @@ Not ready for benchmark claims:
 - adjudicated reviewer labels
 - hidden holdout administration outside this public repo
 - public false positive and false negative analysis on reviewed labels
-- multi-label scoring for cases where multiple findings are valid
 
-The key v0.4 result is that CtxGov doctor now covers the public trace-pattern
-release integrity, Memory X-Ray L1, and Task Shard scaffold. The 1.0000 scores
-validate readiness of this artifact and adapter path, not general benchmark
-performance.
+The key v0.5 result is that CtxGov doctor, the adapter, and the multi-label
+scorer now close the deterministic mutation scaffold with exact evidence spans.
+The 1.0000 doctor score validates readiness of this artifact and adapter path,
+not general benchmark performance.
 
 ## Related Project
 
 - CtxGov main repo: `https://github.com/ctxgov/ctxgov`
 - CtxGov project page: `https://ctxgov.github.io/ctxgov/`
-- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.4.0`
+- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.5.0`

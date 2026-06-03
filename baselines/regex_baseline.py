@@ -86,17 +86,39 @@ def predict(case: dict) -> dict | None:
     return None
 
 
+def predict_all(case: dict) -> list[dict]:
+    text = case["ai_context"]
+    predictions = []
+    seen: set[str] = set()
+    for finding_type, pattern in RULES:
+        match = pattern.search(text)
+        if not match or finding_type in seen:
+            continue
+        seen.add(finding_type)
+        predictions.append(
+            {
+                "case_id": case["case_id"],
+                "finding_type": finding_type,
+                "evidence_span": match.group(0),
+                "confidence": 0.45,
+                "source": "regex_baseline",
+            }
+        )
+    return predictions
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run a transparent regex baseline over Agent Context Health cases.")
     parser.add_argument("--cases", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--multi-label", action="store_true", help="Emit every matched finding type for each case.")
     args = parser.parse_args()
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w", encoding="utf-8") as handle:
         for case in read_cases(args.cases):
-            prediction = predict(case)
-            if prediction:
+            predictions = predict_all(case) if args.multi_label else [prediction for prediction in [predict(case)] if prediction]
+            for prediction in predictions:
                 handle.write(json.dumps(prediction, sort_keys=True) + "\n")
     return 0
 
