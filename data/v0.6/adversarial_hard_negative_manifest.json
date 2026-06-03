@@ -1,0 +1,19 @@
+{
+  "case_count": 60,
+  "claim_boundary": "Local adversarial hard negatives; not an independently adjudicated benchmark.",
+  "finding_type": "none",
+  "label_count": 60,
+  "mutation_kinds": [
+    "approved_deploy",
+    "benchmark_negated",
+    "exit_code_archive",
+    "memory_repaired",
+    "outreach_scoped",
+    "package_scoped",
+    "release_archive",
+    "release_not_found_scoped",
+    "schema_resolved",
+    "terminal_history"
+  ],
+  "schema_id": "agent-context-evals.v06-adversarial-hard-negative-manifest/v1"
+}

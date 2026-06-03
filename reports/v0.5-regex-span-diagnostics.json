@@ -1,0 +1,457 @@
+{
+  "bucket_counts": {
+    "exact": 103,
+    "high": 0,
+    "partial": 0,
+    "zero": 0
+  },
+  "false_negative_count": 63,
+  "false_negatives": [
+    {
+      "case_id": "mutation-003",
+      "finding_type": "missing_source_coverage"
+    },
+    {
+      "case_id": "mutation-004",
+      "finding_type": "missing_source_coverage"
+    },
+    {
+      "case_id": "mutation-008",
+      "finding_type": "missing_source_coverage"
+    },
+    {
+      "case_id": "mutation-013",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-014",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-018",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-023",
+      "finding_type": "unbounded_consequence"
+    },
+    {
+      "case_id": "mutation-024",
+      "finding_type": "unbounded_consequence"
+    },
+    {
+      "case_id": "mutation-028",
+      "finding_type": "unbounded_consequence"
+    },
+    {
+      "case_id": "mutation-033",
+      "finding_type": "missing_model_state_surface"
+    },
+    {
+      "case_id": "mutation-034",
+      "finding_type": "missing_model_state_surface"
+    },
+    {
+      "case_id": "mutation-038",
+      "finding_type": "missing_model_state_surface"
+    },
+    {
+      "case_id": "mutation-043",
+      "finding_type": "unsupported_release_claim"
+    },
+    {
+      "case_id": "mutation-044",
+      "finding_type": "unsupported_release_claim"
+    },
+    {
+      "case_id": "mutation-048",
+      "finding_type": "unsupported_release_claim"
+    },
+    {
+      "case_id": "mutation-053",
+      "finding_type": "hidden_terminal_failure"
+    },
+    {
+      "case_id": "mutation-054",
+      "finding_type": "hidden_terminal_failure"
+    },
+    {
+      "case_id": "mutation-058",
+      "finding_type": "hidden_terminal_failure"
+    },
+    {
+      "case_id": "mutation-063",
+      "finding_type": "conflicting_policy"
+    },
+    {
+      "case_id": "mutation-064",
+      "finding_type": "conflicting_policy"
+    },
+    {
+      "case_id": "mutation-068",
+      "finding_type": "conflicting_policy"
+    },
+    {
+      "case_id": "mutation-071",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-072",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-073",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-073",
+      "finding_type": "unsafe_action_guidance"
+    },
+    {
+      "case_id": "mutation-074",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-074",
+      "finding_type": "unsafe_action_guidance"
+    },
+    {
+      "case_id": "mutation-075",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-076",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-077",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-078",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-078",
+      "finding_type": "unsafe_action_guidance"
+    },
+    {
+      "case_id": "mutation-079",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-080",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-083",
+      "finding_type": "stale_claim"
+    },
+    {
+      "case_id": "mutation-084",
+      "finding_type": "stale_claim"
+    },
+    {
+      "case_id": "mutation-088",
+      "finding_type": "stale_claim"
+    },
+    {
+      "case_id": "mutation-091",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-096",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-101",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-101",
+      "finding_type": "unsupported_release_claim"
+    },
+    {
+      "case_id": "mutation-102",
+      "finding_type": "missing_source_coverage"
+    },
+    {
+      "case_id": "mutation-103",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-104",
+      "finding_type": "unsafe_action_guidance"
+    },
+    {
+      "case_id": "mutation-105",
+      "finding_type": "stale_claim"
+    },
+    {
+      "case_id": "mutation-106",
+      "finding_type": "conflicting_policy"
+    },
+    {
+      "case_id": "mutation-106",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-107",
+      "finding_type": "unsupported_release_claim"
+    },
+    {
+      "case_id": "mutation-108",
+      "finding_type": "missing_source_coverage"
+    },
+    {
+      "case_id": "mutation-109",
+      "finding_type": "conflicting_policy"
+    },
+    {
+      "case_id": "mutation-110",
+      "finding_type": "stale_claim"
+    },
+    {
+      "case_id": "mutation-111",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-111",
+      "finding_type": "unsafe_action_guidance"
+    },
+    {
+      "case_id": "mutation-112",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-113",
+      "finding_type": "unbounded_consequence"
+    },
+    {
+      "case_id": "mutation-114",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-115",
+      "finding_type": "hidden_terminal_failure"
+    },
+    {
+      "case_id": "mutation-116",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-116",
+      "finding_type": "unsafe_action_guidance"
+    },
+    {
+      "case_id": "mutation-117",
+      "finding_type": "hidden_terminal_failure"
+    },
+    {
+      "case_id": "mutation-118",
+      "finding_type": "missing_model_state_surface"
+    },
+    {
+      "case_id": "mutation-119",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "mutation-120",
+      "finding_type": "unsupported_release_claim"
+    }
+  ],
+  "false_positive_count": 0,
+  "false_positives": [],
+  "labels": "data/v0.5/mutation_labels.jsonl",
+  "longest_predicted_spans": [
+    {
+      "case_id": "mutation-051",
+      "expected_span": "FAILED tests after handoff says passed",
+      "expected_token_count": 6,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "FAILED tests after handoff says passed",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-052",
+      "expected_span": "FAILED tests after handoff says passed",
+      "expected_token_count": 6,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "FAILED tests after handoff says passed",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-055",
+      "expected_span": "FAILED tests after handoff says passed",
+      "expected_token_count": 6,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "FAILED tests after handoff says passed",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-056",
+      "expected_span": "FAILED tests after handoff says passed",
+      "expected_token_count": 6,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "FAILED tests after handoff says passed",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-057",
+      "expected_span": "FAILED tests after handoff says passed",
+      "expected_token_count": 6,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "FAILED tests after handoff says passed",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-059",
+      "expected_span": "FAILED tests after handoff says passed",
+      "expected_token_count": 6,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "FAILED tests after handoff says passed",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-060",
+      "expected_span": "FAILED tests after handoff says passed",
+      "expected_token_count": 6,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "FAILED tests after handoff says passed",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-071",
+      "expected_span": "apply shard without approval or rollback",
+      "expected_token_count": 6,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "apply shard without approval or rollback",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-072",
+      "expected_span": "apply shard without approval or rollback",
+      "expected_token_count": 6,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "apply shard without approval or rollback",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-075",
+      "expected_span": "apply shard without approval or rollback",
+      "expected_token_count": 6,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "apply shard without approval or rollback",
+      "predicted_token_count": 6,
+      "token_f1": 1.0
+    }
+  ],
+  "max_token_f1": 1.0,
+  "mean_token_f1": 1.0,
+  "min_token_f1": 1.0,
+  "near_misses": [],
+  "predictions": "reports/v0.5-regex-baseline-results.jsonl",
+  "schema_id": "agent-context-evals.span-diagnostics/v1",
+  "shortest_predicted_spans": [
+    {
+      "case_id": "mutation-011",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-012",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-015",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-016",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-017",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-019",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-020",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-092",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-093",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-094",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    }
+  ],
+  "true_positive_count": 103
+}

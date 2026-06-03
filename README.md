@@ -1,6 +1,6 @@
 # Agent Context Health Eval
 
-Status: public v0.5 evaluation artifact for `ctxgov/agent-context-evals`.
+Status: public v0.6 evaluation artifact for `ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
 not a public benchmark claim, security evaluation, provider compatibility
@@ -49,6 +49,10 @@ agent-context-evals/
       mutation_cases.jsonl
       mutation_labels.jsonl
       mutation_manifest.json
+    v0.6/
+      adversarial_hard_negative_cases.jsonl
+      adversarial_hard_negative_labels.jsonl
+      adversarial_hard_negative_manifest.json
   adapters/
     offline_context_adapters.py
   baselines/
@@ -60,6 +64,7 @@ agent-context-evals/
     score_findings.py
     metrics.py
     score_multilabel.py
+    span_diagnostics.py
   review/
     independent-review-packet.md
     blinded-label-sheet.csv
@@ -78,6 +83,7 @@ agent-context-evals/
     v0.3-readiness.md
     v0.4-results.md
     v0.5-results.md
+    v0.6-results.md
   examples/
     clean_repo/
     stale_claim/
@@ -185,6 +191,29 @@ python3 scoring/score_multilabel.py \
   --predictions reports/v0.5-ctxgov-doctor-results.jsonl
 ```
 
+For v0.6 adversarial hard negatives and span diagnostics:
+
+```bash
+python3 scripts/generate_v06_adversarial_hard_negatives.py
+
+python3 baselines/regex_baseline.py \
+  --cases data/v0.6/adversarial_hard_negative_cases.jsonl \
+  --output reports/v0.6-regex-hard-negative-results.jsonl \
+  --multi-label
+
+python3 ctxgov_adapter/run_ctxgov.py \
+  --cases data/v0.6/adversarial_hard_negative_cases.jsonl \
+  --output reports/v0.6-ctxgov-doctor-hard-negative-results.jsonl \
+  --mode doctor \
+  --projection none \
+  --ctxgov-root /path/to/ctxgov
+
+python3 scoring/span_diagnostics.py \
+  --labels data/v0.5/mutation_labels.jsonl \
+  --predictions reports/v0.5-ctxgov-doctor-results.jsonl \
+  --output reports/v0.5-ctxgov-doctor-span-diagnostics.json
+```
+
 ## Case Schema
 
 Each `data/cases.jsonl` row contains:
@@ -218,10 +247,11 @@ review, but the review is still pending. The v0.4 hard negatives are synthetic
 controls that reduce obvious regex false positives but do not replace
 independent review. The v0.5 mutation split is deterministic local scaffold
 data with multi-label cases and clean controls; it is a strong regression gate,
-not a public benchmark claim. These artifacts are useful for schema, scorer,
-adapter, workflow, and demo validation. They do not prove security coverage,
-agent safety, model reliability, provider compatibility, or real-world
-prevalence.
+not a public benchmark claim. The v0.6 adversarial hard negatives add local
+false-positive pressure with hazardous vocabulary in repaired, scoped, or
+negated context. These artifacts are useful for schema, scorer, adapter,
+workflow, and demo validation. They do not prove security coverage, agent
+safety, model reliability, provider compatibility, or real-world prevalence.
 
 Before a public benchmark claim, this needs real trace-derived cases with
 reviewer approval, hard negative controls, independent reviewer labels, and a
@@ -240,6 +270,7 @@ Ready for public project surface:
   and Task Shard coverage
 - v0.5 deterministic mutation data with 160 cases, 206 labels, 40 clean
   controls, multi-label scoring, and native CtxGov doctor adapter run
+- v0.6 adversarial hard negatives with 60 clean controls and span diagnostics
 
 Not ready for benchmark claims:
 
@@ -248,13 +279,13 @@ Not ready for benchmark claims:
 - hidden holdout administration outside this public repo
 - public false positive and false negative analysis on reviewed labels
 
-The key v0.5 result is that CtxGov doctor, the adapter, and the multi-label
-scorer now close the deterministic mutation scaffold with exact evidence spans.
-The 1.0000 doctor score validates readiness of this artifact and adapter path,
-not general benchmark performance.
+The key v0.6 result is that the artifact now has both positive deterministic
+mutation coverage and adversarial clean controls. The 1.0000 v0.5 doctor score
+and 0-FP v0.6 hard-negative result validate readiness of this artifact and
+adapter path, not general benchmark performance.
 
 ## Related Project
 
 - CtxGov main repo: `https://github.com/ctxgov/ctxgov`
 - CtxGov project page: `https://ctxgov.github.io/ctxgov/`
-- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.5.0`
+- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.6.0`
