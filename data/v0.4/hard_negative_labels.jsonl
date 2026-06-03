@@ -1,0 +1,20 @@
+{"case_id":"hard-negative-001","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Resolved historical failure; final claim cites passing rerun.","start_char":-1}
+{"case_id":"hard-negative-002","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Obsolete 404 is superseded by current 200 release URL and checksum.","start_char":-1}
+{"case_id":"hard-negative-003","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Historical Traceback is disclosed and not contradicted by current claims.","start_char":-1}
+{"case_id":"hard-negative-004","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"External auth failure is scoped out and offline path is accurately claimed.","start_char":-1}
+{"case_id":"hard-negative-005","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Dry-run empty output is repaired before the report claim.","start_char":-1}
+{"case_id":"hard-negative-006","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Source coverage is present.","start_char":-1}
+{"case_id":"hard-negative-007","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Rollback is present.","start_char":-1}
+{"case_id":"hard-negative-008","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Consequence ceiling is bounded and model-state promotion is forbidden.","start_char":-1}
+{"case_id":"hard-negative-009","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Model-state surface is documented as untouched.","start_char":-1}
+{"case_id":"hard-negative-010","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Schema import transition is resolved to one active path.","start_char":-1}
+{"case_id":"hard-negative-011","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Approval and rollback are complete before side effects.","start_char":-1}
+{"case_id":"hard-negative-012","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Write permission is limited to scratch fixtures and release writes remain gated.","start_char":-1}
+{"case_id":"hard-negative-013","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Transient missing tag state is corrected before publication.","start_char":-1}
+{"case_id":"hard-negative-014","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Registry absence is disclosed and no package publication claim is made.","start_char":-1}
+{"case_id":"hard-negative-015","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Existing GitHub repository link is true and bounded.","start_char":-1}
+{"case_id":"hard-negative-016","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Manual review status is distinguished from unavailable CodeRabbit review.","start_char":-1}
+{"case_id":"hard-negative-017","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"LLM judge baseline is only planned and not used by default.","start_char":-1}
+{"case_id":"hard-negative-018","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Release and registry claims are downgraded to draft/pending.","start_char":-1}
+{"case_id":"hard-negative-019","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"First demo failure is repaired and provenance is explicit.","start_char":-1}
+{"case_id":"hard-negative-020","end_char":-1,"evidence_span":"n/a","finding_type":"none","must_flag":false,"rationale":"Outreach approval gate is respected and endorsement is not claimed.","start_char":-1}
