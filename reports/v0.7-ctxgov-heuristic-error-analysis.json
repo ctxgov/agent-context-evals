@@ -1,0 +1,101 @@
+{
+  "false_negatives": [
+    {
+      "case_id": "trace-v07-release-notes-06",
+      "expected_span": "source coverage missing",
+      "finding_type": "missing_source_coverage"
+    },
+    {
+      "case_id": "trace-v07-release-notes-07",
+      "expected_span": "rollback missing",
+      "finding_type": "missing_rollback"
+    },
+    {
+      "case_id": "trace-v07-release-notes-09",
+      "expected_span": "model-state surface missing",
+      "finding_type": "missing_model_state_surface"
+    }
+  ],
+  "false_positives": [
+    {
+      "case_id": "trace-v07-release-notes-06",
+      "finding_type": "unsupported_release_claim",
+      "hard_negative_leakage": false,
+      "predicted_span": "missing"
+    },
+    {
+      "case_id": "trace-v07-release-notes-07",
+      "finding_type": "unsupported_release_claim",
+      "hard_negative_leakage": false,
+      "predicted_span": "missing"
+    },
+    {
+      "case_id": "trace-v07-release-notes-09",
+      "finding_type": "unsupported_release_claim",
+      "hard_negative_leakage": false,
+      "predicted_span": "missing"
+    }
+  ],
+  "labels": "data/v0.7/trace_shaped_labels.jsonl",
+  "per_finding_type": {
+    "conflicting_policy": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "hidden_terminal_failure": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "missing_model_state_surface": {
+      "false_negative_count": 1,
+      "false_positive_count": 0,
+      "true_positive_count": 7
+    },
+    "missing_rollback": {
+      "false_negative_count": 1,
+      "false_positive_count": 0,
+      "true_positive_count": 7
+    },
+    "missing_source_coverage": {
+      "false_negative_count": 1,
+      "false_positive_count": 0,
+      "true_positive_count": 7
+    },
+    "stale_claim": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "unbounded_consequence": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "unsafe_action_guidance": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "unsupported_release_claim": {
+      "false_negative_count": 0,
+      "false_positive_count": 3,
+      "true_positive_count": 8
+    }
+  },
+  "predictions": "reports/v0.7-ctxgov-heuristic-results.jsonl",
+  "schema_id": "agent-context-evals.error-analysis/v1",
+  "span_summary": {
+    "evaluated_true_positive_count": 69,
+    "max_token_f1": 1.0,
+    "mean_token_f1": 0.6134,
+    "min_token_f1": 0.2857
+  },
+  "summary": {
+    "false_negative_count": 3,
+    "false_positive_count": 3,
+    "hard_negative_leakage_count": 0,
+    "true_positive_count": 69
+  }
+}
