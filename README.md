@@ -1,6 +1,6 @@
 # Agent Context Health Eval
 
-Status: public v0.3 evaluation artifact for `ctxgov/agent-context-evals`.
+Status: public v0.4 evaluation artifact for `ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
 not a public benchmark claim, security evaluation, provider compatibility
@@ -42,6 +42,9 @@ agent-context-evals/
     v0.3/
       review_intake_cases.jsonl
       review_intake_manifest.json
+    v0.4/
+      hard_negative_cases.jsonl
+      hard_negative_labels.jsonl
   adapters/
     offline_context_adapters.py
   baselines/
@@ -68,6 +71,7 @@ agent-context-evals/
     technical-report.md
     v0.2-results.md
     v0.3-readiness.md
+    v0.4-results.md
   examples/
     clean_repo/
     stale_claim/
@@ -131,6 +135,24 @@ The LLM-judge harness is offline by default. It writes prompts and a manifest,
 and can ingest offline reviewer/model decisions with `--review-decisions`, but
 it does not call a provider or model.
 
+For v0.4 hard negatives and native CtxGov doctor coverage:
+
+```bash
+python3 baselines/regex_baseline.py \
+  --cases data/v0.4/hard_negative_cases.jsonl \
+  --output reports/v0.4-hard-negative-regex-results.jsonl
+
+python3 ctxgov_adapter/run_ctxgov.py \
+  --cases data/v0.2/trace_pattern_cases.jsonl \
+  --output reports/v0.4-ctxgov-doctor-results.jsonl \
+  --mode doctor \
+  --ctxgov-root /path/to/ctxgov
+
+python3 scoring/score_findings.py \
+  --labels data/v0.2/trace_pattern_labels.jsonl \
+  --predictions reports/v0.4-ctxgov-doctor-results.jsonl
+```
+
 ## Case Schema
 
 Each `data/cases.jsonl` row contains:
@@ -160,9 +182,11 @@ Clean controls use `finding_type: "none"` and `must_flag: false`.
 
 The v0.1 and v0.2 data are synthetic or sanitized trace-pattern data. The v0.3
 review intake cases are public trace-derived material prepared for independent
-review, but the review is still pending. These artifacts are useful for schema,
-scorer, adapter, workflow, and demo validation, not for public benchmark claims.
-They do not prove security coverage, agent safety, model reliability, provider
+review, but the review is still pending. The v0.4 hard negatives are synthetic
+controls that reduce obvious regex false positives but do not replace
+independent review. These artifacts are useful for schema, scorer, adapter,
+workflow, and demo validation, not for public benchmark claims. They do not
+prove security coverage, agent safety, model reliability, provider
 compatibility, or real-world prevalence.
 
 Before a public benchmark claim, this needs real trace-derived cases with
@@ -177,21 +201,25 @@ Ready for public project surface:
 - v0.3 offline LLM-judge interface with no provider/model call by default
 - v0.3 independent review packet with labels withheld
 - v0.3 reproducible demo fixture and 60-second GIF
+- v0.4 hard-negative controls and tightened regex baseline
+- v0.4 native CtxGov doctor adapter run for release integrity, Memory X-Ray L1,
+  and Task Shard coverage
 
 Not ready for benchmark claims:
 
 - independent review of trace-derived cases
 - adjudicated reviewer labels
-- hard negative expansion
+- hidden holdout administration outside this public repo
 - public false positive and false negative analysis on reviewed labels
+- multi-label scoring for cases where multiple findings are valid
 
-The key v0.2 result is that regex and heuristic scores of 1.0000 validate the
-pipeline, not CtxGov performance. The real CtxGov doctor adapter score is the
-research signal because it exposes coverage gaps for release integrity, Memory
-X-Ray L1, and Task Shard context-control families.
+The key v0.4 result is that CtxGov doctor now covers the public trace-pattern
+release integrity, Memory X-Ray L1, and Task Shard scaffold. The 1.0000 scores
+validate readiness of this artifact and adapter path, not general benchmark
+performance.
 
 ## Related Project
 
 - CtxGov main repo: `https://github.com/ctxgov/ctxgov`
 - CtxGov project page: `https://ctxgov.github.io/ctxgov/`
-- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.3.0`
+- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.4.0`

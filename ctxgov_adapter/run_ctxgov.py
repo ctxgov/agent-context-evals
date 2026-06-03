@@ -14,9 +14,31 @@ CTXGOV_TO_EVAL = {
     "stale_context": "stale_claim",
     "conflicting_instruction": "conflicting_policy",
     "unsupported_claim": "unsupported_release_claim",
+    "release_link_404": "unsupported_release_claim",
+    "package_registry_unverified": "unsupported_release_claim",
+    "release_artifact_missing": "unsupported_release_claim",
     "action_or_publication_without_evidence": "unsafe_action_guidance",
     "terminal_failure_hidden": "hidden_terminal_failure",
     "memory_without_lifecycle_or_rollback": "missing_rollback",
+    "memory_missing_source_coverage": "missing_source_coverage",
+    "memory_missing_rollback": "missing_rollback",
+    "memory_unbounded_consequence": "unbounded_consequence",
+    "memory_missing_model_state_surface": "missing_model_state_surface",
+    "task_shard_schema_conflict": "conflicting_policy",
+    "task_shard_unapproved_side_effect": "unsafe_action_guidance",
+    "task_shard_missing_rollback": "missing_rollback",
+}
+
+SINGLE_LABEL_PRIORITY_BY_FAMILY = {
+    "release_integrity_claim_lint_eval": ["unsupported_release_claim"],
+    "session_continuity_hidden_holdout_eval": ["hidden_terminal_failure", "stale_claim"],
+    "task_shard_context_control_eval": ["conflicting_policy", "unsafe_action_guidance", "missing_rollback"],
+    "memory_xray_l1_eval": [
+        "missing_source_coverage",
+        "missing_rollback",
+        "unbounded_consequence",
+        "missing_model_state_surface",
+    ],
 }
 
 
@@ -32,6 +54,36 @@ def read_cases(path: Path) -> list[dict]:
 
 def map_ctxgov_finding(finding_type: str) -> str | None:
     return CTXGOV_TO_EVAL.get(finding_type)
+
+
+def prediction_from_ctxgov_finding(case_id: str, finding: dict[str, Any]) -> dict | None:
+    ctxgov_finding_type = str(finding.get("finding_type", ""))
+    mapped = map_ctxgov_finding(ctxgov_finding_type)
+    if mapped is None:
+        return None
+    evidence_span = str(finding.get("evidence_span") or finding.get("reason") or "")
+    return {
+        "case_id": case_id,
+        "finding_type": mapped,
+        "evidence_span": evidence_span,
+        "confidence": 0.7,
+        "source": "ctxgov_doctor",
+        "ctxgov_finding_type": ctxgov_finding_type,
+    }
+
+
+def select_ctxgov_predictions(case: dict, predictions: list[dict]) -> list[dict]:
+    """Project multi-finding doctor output onto the current single-label eval rows."""
+
+    priority = SINGLE_LABEL_PRIORITY_BY_FAMILY.get(str(case.get("benchmark_family", "")))
+    if not priority:
+        return predictions
+
+    for finding_type in priority:
+        selected = [prediction for prediction in predictions if prediction["finding_type"] == finding_type]
+        if selected:
+            return selected[:1]
+    return predictions
 
 
 def materialize_case_workspace(case: dict, root: Path) -> Path:
@@ -142,21 +194,12 @@ def predict_with_ctxgov_doctor(case: dict, ctxgov_root: Path, workspace_root: Pa
     predictions = []
     seen: set[str] = set()
     for finding in findings:
-        mapped = map_ctxgov_finding(str(finding.get("finding_type", "")))
-        if mapped is None or mapped in seen:
+        prediction = prediction_from_ctxgov_finding(case["case_id"], finding)
+        if prediction is None or prediction["finding_type"] in seen:
             continue
-        seen.add(mapped)
-        predictions.append(
-            {
-                "case_id": case["case_id"],
-                "finding_type": mapped,
-                "evidence_span": str(finding.get("reason", "")),
-                "confidence": 0.7,
-                "source": "ctxgov_doctor",
-                "ctxgov_finding_type": finding.get("finding_type"),
-            }
-        )
-    return predictions
+        seen.add(prediction["finding_type"])
+        predictions.append(prediction)
+    return select_ctxgov_predictions(case, predictions)
 
 
 def run_cases(cases: list[dict], *, mode: str, ctxgov_root: Path | None = None) -> list[dict]:
