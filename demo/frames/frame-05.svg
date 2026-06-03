@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#eef3f2"/>
+  <text x="60" y="76" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#172026">Claim boundaries stay visible</text>
+  <rect x="80" y="130" width="800" height="285" rx="8" fill="#ffffff" stroke="#c9d2d9"/>
+  <text x="120" y="190" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#172026">Demo fixture only</text>
+  <text x="120" y="242" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#172026">No universal benchmark claim</text>
+  <text x="120" y="294" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#172026">No security guarantee</text>
+  <text x="120" y="346" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#172026">No provider compatibility statement</text>
+</svg>

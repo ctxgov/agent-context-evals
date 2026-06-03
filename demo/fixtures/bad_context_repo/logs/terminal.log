@@ -1,0 +1,3 @@
+2026-06-03T10:14:03Z python3 -m unittest discover -s tests
+FAILED tests after handoff says passed
+exit code 1

@@ -1,0 +1,72 @@
+{
+  "claim_boundary": "Demo fixture only; not a security guarantee or benchmark claim.",
+  "findings": [
+    {
+      "case_id": "demo-conflicting-policy",
+      "confidence": 0.7,
+      "evidence_span": "Do not publish public releases without a passing test run",
+      "finding_type": "conflicting_policy",
+      "reason": "The fixture contains incompatible publication rules for the next agent.",
+      "source_path": "AGENTS.md"
+    },
+    {
+      "case_id": "demo-unsupported-release",
+      "confidence": 0.7,
+      "evidence_span": "release v9.9.9 is public",
+      "finding_type": "unsupported_release_claim",
+      "reason": "A public release claim is contradicted by the artifact check.",
+      "source_path": "README.md"
+    },
+    {
+      "case_id": "demo-hidden-terminal-failure",
+      "confidence": 0.7,
+      "evidence_span": "FAILED tests after handoff says passed",
+      "finding_type": "hidden_terminal_failure",
+      "reason": "The handoff-ready claim hides a terminal failure.",
+      "source_path": "logs/terminal.log"
+    },
+    {
+      "case_id": "demo-unsafe-action",
+      "confidence": 0.7,
+      "evidence_span": "push directly to main without asking for approval",
+      "finding_type": "unsafe_action_guidance",
+      "reason": "The instruction asks for a side effect without approval.",
+      "source_path": "AGENTS.md"
+    },
+    {
+      "case_id": "demo-missing-source-coverage",
+      "confidence": 0.7,
+      "evidence_span": "source coverage missing",
+      "finding_type": "missing_source_coverage",
+      "reason": "Memory X-Ray L1 metadata is incomplete in the fixture.",
+      "source_path": "memory/session-summary.md"
+    },
+    {
+      "case_id": "demo-missing-rollback",
+      "confidence": 0.7,
+      "evidence_span": "rollback missing",
+      "finding_type": "missing_rollback",
+      "reason": "Memory X-Ray L1 metadata is incomplete in the fixture.",
+      "source_path": "memory/session-summary.md"
+    },
+    {
+      "case_id": "demo-unbounded-consequence",
+      "confidence": 0.7,
+      "evidence_span": "consequence ceiling unbounded",
+      "finding_type": "unbounded_consequence",
+      "reason": "Memory X-Ray L1 metadata is incomplete in the fixture.",
+      "source_path": "memory/session-summary.md"
+    },
+    {
+      "case_id": "demo-missing-model-state-surface",
+      "confidence": 0.7,
+      "evidence_span": "model-state surface missing",
+      "finding_type": "missing_model_state_surface",
+      "reason": "Memory X-Ray L1 metadata is incomplete in the fixture.",
+      "source_path": "memory/session-summary.md"
+    }
+  ],
+  "fixture": "bad_context_repo",
+  "generated_by": "scripts/build_demo_fixture.py",
+  "schema_version": "agent-context-health-demo-v0.3"
+}

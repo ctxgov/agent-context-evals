@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#f7f7f4"/>
+  <text x="60" y="76" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#172026">After: report highlights findings</text>
+  <rect x="60" y="112" width="860" height="72" rx="8" fill="#ffffff" stroke="#c9d2d9"/>
+  <text x="90" y="158" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#172026">unsupported_release_claim - release v9.9.9 is public</text>
+  <rect x="60" y="200" width="860" height="72" rx="8" fill="#ffffff" stroke="#c9d2d9"/>
+  <text x="90" y="246" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#172026">conflicting_policy - incompatible release rules</text>
+  <rect x="60" y="288" width="860" height="72" rx="8" fill="#ffffff" stroke="#c9d2d9"/>
+  <text x="90" y="334" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#172026">hidden_terminal_failure - FAILED tests</text>
+  <rect x="60" y="376" width="860" height="72" rx="8" fill="#ffffff" stroke="#c9d2d9"/>
+  <text x="90" y="422" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#172026">Memory X-Ray L1 - source, rollback, consequence, state gaps</text>
+</svg>
