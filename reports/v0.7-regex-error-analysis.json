@@ -1,0 +1,66 @@
+{
+  "false_negatives": [],
+  "false_positives": [],
+  "labels": "data/v0.7/trace_shaped_labels.jsonl",
+  "per_finding_type": {
+    "conflicting_policy": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "hidden_terminal_failure": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "missing_model_state_surface": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "missing_rollback": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "missing_source_coverage": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "stale_claim": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "unbounded_consequence": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "unsafe_action_guidance": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    },
+    "unsupported_release_claim": {
+      "false_negative_count": 0,
+      "false_positive_count": 0,
+      "true_positive_count": 8
+    }
+  },
+  "predictions": "reports/v0.7-regex-baseline-results.jsonl",
+  "schema_id": "agent-context-evals.error-analysis/v1",
+  "span_summary": {
+    "evaluated_true_positive_count": 72,
+    "max_token_f1": 1.0,
+    "mean_token_f1": 0.9167,
+    "min_token_f1": 0.25
+  },
+  "summary": {
+    "false_negative_count": 0,
+    "false_positive_count": 0,
+    "hard_negative_leakage_count": 0,
+    "true_positive_count": 72
+  }
+}

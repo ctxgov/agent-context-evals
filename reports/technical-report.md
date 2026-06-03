@@ -1,6 +1,6 @@
 # Evaluating AI-Facing Context Health Before Agent Execution
 
-Status: technical report draft for the public v0.6 companion evaluation artifact.
+Status: technical report draft for the public v0.7 companion evaluation artifact.
 
 ## Abstract
 
@@ -67,6 +67,21 @@ vocabulary such as releases, 404s, failed commands, rollback, memory, schema,
 and approval, but the context is repaired, scoped, or negated and should not be
 flagged.
 
+The v0.7 dataset adds 96 trace-shaped local cases:
+
+- 8 source families: terminal logs, handoff summaries, AGENTS/Cursor/CLAUDE
+  rules, release notes, GitHub PR/release/issues, package registry manifests,
+  local transcripts, and memory traces
+- 72 positive cases
+- 24 clean controls
+- 9 positive finding types, each with 8 labels
+- evidence spans for every positive label
+
+The v0.7 split is still synthetic and local, but it is shaped like the material
+an AI agent actually reads before acting. It reduces reliance on external
+reviewers by making source family, evidence span, and adapter behavior locally
+testable.
+
 ## Evaluation Protocol
 
 Each evaluator reads `data/cases.jsonl` and emits predictions with:
@@ -108,6 +123,20 @@ CtxGov adapter:
   workspaces
 - neither mode makes a public benchmark claim
 
+Offline v0.7 adapters:
+
+- GitHub PR/release/issues adapter over local payloads
+- CI/terminal log adapter over local log text
+- AGENTS/CLAUDE/Cursor rules adapter over local rules text
+- package registry checker over local manifest/status payloads
+- local transcript adapter over saved handoff text
+- memory trace adapter over local source/rollback/consequence/model-state
+  metadata
+
+These adapters do not fetch GitHub, registry, model, provider, or target-repo
+state. Network-backed variants should be treated as future adapters with their
+own approval and provenance boundaries.
+
 ## Results
 
 The local run should report scaffold metrics for:
@@ -145,10 +174,18 @@ Observed v0.6 local adversarial hard-negative metrics on 2026-06-03:
 | regex baseline | 60 | 0 | 0 | 0 | No FP on local adversarial clean controls. |
 | CtxGov doctor adapter | 60 | 0 | 0 | 0 | No FP on local adversarial clean controls. |
 
+Observed v0.7 local trace-shaped metrics on 2026-06-03:
+
+| Evaluator | Cases | Labels | Precision | Recall | F1 | Mean Evidence Token-F1 | FP | FN | Notes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| regex baseline | 96 | 96 | 1.0000 | 1.0000 | 1.0000 | 0.9167 | 0 | 0 | Transparent rules over synthetic trace-shaped patterns. |
+| CtxGov heuristic adapter | 96 | 96 | 0.9583 | 0.9583 | 0.9583 | 0.6134 | 3 | 3 | Exposes release-notes/source-family confusion. |
+| CtxGov doctor adapter | 96 | 96 | 1.0000 | 1.0000 | 1.0000 | 0.9333 | 0 | 0 | Local CtxGov doctor invocation over v0.7 trace-shaped cases. |
+
 Do not quote these as public benchmark results. They are reproducibility checks
 for the harness, adapter, and local doctor coverage. The v0.5 doctor result and
-v0.6 hard-negative result are deterministic scaffold readiness signals, not
-real-world performance estimates.
+v0.6 hard-negative result and v0.7 trace-shaped result are deterministic local
+readiness signals, not real-world performance estimates.
 
 ## Error Analysis
 
@@ -162,6 +199,17 @@ Use the scorer output to review:
 - under-labeled multi-label cases where one evidence span implies both unsafe
   action and missing rollback
 - false positives on repaired, scoped, or negated hard negatives
+
+For v0.7, automated error analysis is stored in:
+
+- `reports/v0.7-regex-error-analysis.json`
+- `reports/v0.7-ctxgov-heuristic-error-analysis.json`
+- `reports/v0.7-ctxgov-doctor-error-analysis.json`
+
+The heuristic adapter's v0.7 FP/FN cluster is useful because it shows that a
+small source-family heuristic can confuse release-note context with memory L1
+findings. The doctor adapter covers the current v0.7 scaffold, but that remains
+local evidence over synthetic trace-shaped data.
 
 ## Limitations
 

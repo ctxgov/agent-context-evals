@@ -1,0 +1,32 @@
+{
+  "case_count": 96,
+  "finding_counts": {
+    "conflicting_policy": 8,
+    "hidden_terminal_failure": 8,
+    "missing_model_state_surface": 8,
+    "missing_rollback": 8,
+    "missing_source_coverage": 8,
+    "none": 24,
+    "stale_claim": 8,
+    "unbounded_consequence": 8,
+    "unsafe_action_guidance": 8,
+    "unsupported_release_claim": 8
+  },
+  "label_count": 96,
+  "limitations": [
+    "Synthetic trace-shaped local data, not a public benchmark claim.",
+    "No provider/model call, network fetch, or target-repo write.",
+    "External reviewer adjudication is optional future evidence, not required for local v0.7 readiness."
+  ],
+  "schema_id": "agent-context-evals.trace-shaped-suite/v0.7",
+  "source_counts": {
+    "agent_rules_file": 12,
+    "github_issue_pr": 12,
+    "handoff_summary": 12,
+    "local_transcript": 12,
+    "memory_trace": 12,
+    "package_registry_manifest": 12,
+    "release_notes": 12,
+    "terminal_log": 12
+  }
+}

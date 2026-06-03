@@ -1,6 +1,6 @@
 # Agent Context Health Eval
 
-Status: public v0.6 evaluation artifact for `ctxgov/agent-context-evals`.
+Status: public v0.7 evaluation artifact for `ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
 not a public benchmark claim, security evaluation, provider compatibility
@@ -53,8 +53,13 @@ agent-context-evals/
       adversarial_hard_negative_cases.jsonl
       adversarial_hard_negative_labels.jsonl
       adversarial_hard_negative_manifest.json
+    v0.7/
+      trace_shaped_cases.jsonl
+      trace_shaped_labels.jsonl
+      trace_shaped_manifest.json
   adapters/
     offline_context_adapters.py
+    v07_trace_adapters.py
   baselines/
     regex_baseline.py
     llm_judge_baseline.py
@@ -65,6 +70,7 @@ agent-context-evals/
     metrics.py
     score_multilabel.py
     span_diagnostics.py
+    error_analysis.py
   review/
     independent-review-packet.md
     blinded-label-sheet.csv
@@ -76,6 +82,7 @@ agent-context-evals/
     index.html
     fixtures/bad_context_repo/
     reports/demo-context-health-report.md
+    reports/v0.7-live-report-fixture.md
   reports/
     v0.1-results.md
     technical-report.md
@@ -84,6 +91,7 @@ agent-context-evals/
     v0.4-results.md
     v0.5-results.md
     v0.6-results.md
+    v0.7-results.md
   examples/
     clean_repo/
     stale_claim/
@@ -213,6 +221,35 @@ python3 scoring/span_diagnostics.py \
   --predictions reports/v0.5-ctxgov-doctor-results.jsonl \
   --output reports/v0.5-ctxgov-doctor-span-diagnostics.json
 ```
+
+For v0.7 trace-shaped local evaluation:
+
+```bash
+python3 scripts/generate_v07_trace_suite.py
+
+python3 baselines/regex_baseline.py \
+  --cases data/v0.7/trace_shaped_cases.jsonl \
+  --output reports/v0.7-regex-baseline-results.jsonl \
+  --multi-label
+
+python3 ctxgov_adapter/run_ctxgov.py \
+  --cases data/v0.7/trace_shaped_cases.jsonl \
+  --output reports/v0.7-ctxgov-doctor-results.jsonl \
+  --mode doctor \
+  --projection none \
+  --ctxgov-root /path/to/ctxgov
+
+python3 scoring/error_analysis.py \
+  --labels data/v0.7/trace_shaped_labels.jsonl \
+  --predictions reports/v0.7-ctxgov-doctor-results.jsonl \
+  --hard-negative-labels data/v0.7/trace_shaped_labels.jsonl \
+  --output reports/v0.7-ctxgov-doctor-error-analysis.json
+```
+
+The v0.7 suite contains 96 trace-shaped local cases across terminal logs,
+handoff summaries, AGENTS/Cursor/CLAUDE-style rules, release notes, GitHub
+issue/PR snippets, package registry manifests, local transcripts, and memory
+traces. It is a local reproducibility artifact, not a public benchmark claim.
 
 ## Case Schema
 
