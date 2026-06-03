@@ -1,0 +1,35 @@
+{
+  "baseline": "llm_judge_baseline",
+  "case_count": 12,
+  "cases": "data/v0.3/review_intake_cases.jsonl",
+  "claim_boundary": "This baseline prepares or ingests offline judge decisions; it does not call an LLM provider.",
+  "model": "offline-review-template",
+  "offline_decision_count": 0,
+  "output": "reports/v0.3-llm-judge-baseline-results.jsonl",
+  "prompt_contract": {
+    "allowed_finding_types": [
+      "stale_claim",
+      "conflicting_policy",
+      "unsupported_release_claim",
+      "unsafe_action_guidance",
+      "hidden_terminal_failure",
+      "missing_source_coverage",
+      "missing_rollback",
+      "unbounded_consequence",
+      "missing_model_state_surface",
+      "none"
+    ],
+    "labels_exposed_to_prompt": false,
+    "requires_exact_evidence_span": true
+  },
+  "prompt_output": "reports/v0.3-llm-judge-prompts.jsonl",
+  "provider": "disabled",
+  "review_decisions": null,
+  "side_effects": {
+    "network_access_required": false,
+    "provider_or_model_call_performed": false,
+    "writes_predictions_only_from_review_decisions": true
+  },
+  "status": "dry_run",
+  "version": "v0.3-offline-judge"
+}

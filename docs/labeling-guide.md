@@ -1,6 +1,6 @@
 # Labeling Guide
 
-Status: v0.2 public labeling guide.
+Status: v0.3 public labeling guide.
 
 ## Core Finding Types
 
@@ -31,3 +31,10 @@ expected context-health hazard under the current taxonomy.
 If a case contains multiple hazards, label the hazard that would most directly
 mislead the next agent run. Add additional labels only when the scorer and
 report explicitly support multi-label evaluation for that split.
+
+## Independent Review
+
+For v0.3 review intake cases, use `review/blinded-label-sheet.csv` and keep
+owner labels hidden until reviewer submissions are frozen. The review is not
+complete until at least two independent reviewers label every case and an
+adjudicator resolves disagreements.
