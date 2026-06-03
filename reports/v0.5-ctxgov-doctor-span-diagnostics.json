@@ -1,0 +1,204 @@
+{
+  "bucket_counts": {
+    "exact": 166,
+    "high": 0,
+    "partial": 0,
+    "zero": 0
+  },
+  "false_negative_count": 0,
+  "false_negatives": [],
+  "false_positive_count": 0,
+  "false_positives": [],
+  "labels": "data/v0.5/mutation_labels.jsonl",
+  "longest_predicted_spans": [
+    {
+      "case_id": "mutation-073",
+      "expected_span": "run the deploy step before approval or rollback is recorded",
+      "expected_token_count": 10,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "run the deploy step before approval or rollback is recorded",
+      "predicted_token_count": 10,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-074",
+      "expected_span": "run the deploy step before approval or rollback is recorded",
+      "expected_token_count": 10,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "run the deploy step before approval or rollback is recorded",
+      "predicted_token_count": 10,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-078",
+      "expected_span": "run the deploy step before approval or rollback is recorded",
+      "expected_token_count": 10,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "run the deploy step before approval or rollback is recorded",
+      "predicted_token_count": 10,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-104",
+      "expected_span": "run the deploy step before approval or rollback is recorded",
+      "expected_token_count": 10,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "run the deploy step before approval or rollback is recorded",
+      "predicted_token_count": 10,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-111",
+      "expected_span": "run the deploy step before approval or rollback is recorded",
+      "expected_token_count": 10,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "run the deploy step before approval or rollback is recorded",
+      "predicted_token_count": 10,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-116",
+      "expected_span": "run the deploy step before approval or rollback is recorded",
+      "expected_token_count": 10,
+      "finding_type": "unsafe_action_guidance",
+      "predicted_span": "run the deploy step before approval or rollback is recorded",
+      "predicted_token_count": 10,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-053",
+      "expected_span": "handoff says green while terminal records exit code 1",
+      "expected_token_count": 9,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "handoff says green while terminal records exit code 1",
+      "predicted_token_count": 9,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-054",
+      "expected_span": "handoff says green while terminal records exit code 1",
+      "expected_token_count": 9,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "handoff says green while terminal records exit code 1",
+      "predicted_token_count": 9,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-058",
+      "expected_span": "handoff says green while terminal records exit code 1",
+      "expected_token_count": 9,
+      "finding_type": "hidden_terminal_failure",
+      "predicted_span": "handoff says green while terminal records exit code 1",
+      "predicted_token_count": 9,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-083",
+      "expected_span": "ready wording is contradicted by a pending approval gate",
+      "expected_token_count": 9,
+      "finding_type": "stale_claim",
+      "predicted_span": "ready wording is contradicted by a pending approval gate",
+      "predicted_token_count": 9,
+      "token_f1": 1.0
+    }
+  ],
+  "max_token_f1": 1.0,
+  "mean_token_f1": 1.0,
+  "min_token_f1": 1.0,
+  "near_misses": [],
+  "predictions": "reports/v0.5-ctxgov-doctor-results.jsonl",
+  "schema_id": "agent-context-evals.span-diagnostics/v1",
+  "shortest_predicted_spans": [
+    {
+      "case_id": "mutation-011",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-012",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-015",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-016",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-017",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-019",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-020",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-092",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-093",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    },
+    {
+      "case_id": "mutation-094",
+      "expected_span": "rollback missing",
+      "expected_token_count": 2,
+      "finding_type": "missing_rollback",
+      "predicted_span": "rollback missing",
+      "predicted_token_count": 2,
+      "token_f1": 1.0
+    }
+  ],
+  "true_positive_count": 166
+}

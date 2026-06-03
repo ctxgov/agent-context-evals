@@ -1,6 +1,6 @@
 # Evaluating AI-Facing Context Health Before Agent Execution
 
-Status: technical report draft for the public v0.5 companion evaluation artifact.
+Status: technical report draft for the public v0.6 companion evaluation artifact.
 
 ## Abstract
 
@@ -61,6 +61,11 @@ deterministic mutation cases and 206 labels:
 
 The v0.5 split is a regression and artifact-readiness scaffold. It is not
 independently adjudicated trace data.
+
+The v0.6 dataset adds 60 adversarial hard negatives. Each case contains hazard
+vocabulary such as releases, 404s, failed commands, rollback, memory, schema,
+and approval, but the context is repaired, scoped, or negated and should not be
+flagged.
 
 ## Evaluation Protocol
 
@@ -133,10 +138,17 @@ Observed v0.5 local mutation multi-label metrics on 2026-06-03:
 | regex baseline | 160 | 206 | 1.0000 | 0.6205 | 0.7658 | 1.0000 | High precision, limited paraphrase and multi-label recall. |
 | CtxGov doctor adapter | 160 | 206 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Local CtxGov doctor invocation over deterministic mutation scaffold. |
 
+Observed v0.6 local adversarial hard-negative metrics on 2026-06-03:
+
+| Evaluator | Cases | Expected positives | Predicted positives | False positives | Notes |
+| --- | ---: | ---: | ---: | ---: | --- |
+| regex baseline | 60 | 0 | 0 | 0 | No FP on local adversarial clean controls. |
+| CtxGov doctor adapter | 60 | 0 | 0 | 0 | No FP on local adversarial clean controls. |
+
 Do not quote these as public benchmark results. They are reproducibility checks
-for the harness, adapter, and local doctor coverage. The v0.5 doctor result is
-a deterministic scaffold readiness signal, not a real-world performance
-estimate.
+for the harness, adapter, and local doctor coverage. The v0.5 doctor result and
+v0.6 hard-negative result are deterministic scaffold readiness signals, not
+real-world performance estimates.
 
 ## Error Analysis
 
@@ -149,6 +161,7 @@ Use the scorer output to review:
 - unsafe-action findings that are actually permissioned instructions
 - under-labeled multi-label cases where one evidence span implies both unsafe
   action and missing rollback
+- false positives on repaired, scoped, or negated hard negatives
 
 ## Limitations
 
