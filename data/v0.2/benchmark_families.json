@@ -1,0 +1,13 @@
+{
+  "case_count": 50,
+  "families": [
+    "memory_xray_l1_eval",
+    "release_integrity_claim_lint_eval",
+    "session_continuity_hidden_holdout_eval",
+    "task_shard_context_control_eval"
+  ],
+  "hidden_holdout_case_count": 12,
+  "labels_public": true,
+  "notes": "v0.2 adds sanitized trace-pattern cases and public holdout case text with labels withheld.",
+  "schema": "agent-context-evals.benchmark-families/v0.2"
+}
