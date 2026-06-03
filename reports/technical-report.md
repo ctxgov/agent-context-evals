@@ -1,6 +1,6 @@
 # Evaluating AI-Facing Context Health Before Agent Execution
 
-Status: technical report draft for the public v0.1 companion benchmark skeleton.
+Status: technical report draft for the public v0.2 companion benchmark skeleton.
 
 ## Abstract
 
@@ -25,6 +25,10 @@ healthy enough to trust.
 | `unsupported_release_claim` | Release, package, benchmark, or compatibility copy lacks an artifact. |
 | `unsafe_action_guidance` | Context encourages side effects without approval or rollback. |
 | `hidden_terminal_failure` | Logs or receipts show failure while handoff copy says pass or ready. |
+| `missing_source_coverage` | Memory candidate lacks source coverage evidence. |
+| `missing_rollback` | Memory candidate lacks deletion or rollback path. |
+| `unbounded_consequence` | Memory candidate lacks a consequence ceiling. |
+| `missing_model_state_surface` | Memory candidate omits affected model-state surfaces. |
 
 ## Dataset Construction
 
@@ -35,8 +39,16 @@ The v0.1 dataset contains 50 synthetic cases:
 - evidence spans for every positive label
 - explicit `none` labels for clean controls
 
-The synthetic set is designed to validate schema, scoring, and workflow shape.
-It is not intended to estimate real-world prevalence.
+The v0.2 dataset adds 50 sanitized trace-pattern cases and 12 public
+hidden-holdout case texts with labels withheld. The v0.2 families are:
+
+- Memory X-Ray L1 Eval
+- Release Integrity / Claim-Lint Eval
+- Session Continuity Hidden-Holdout Eval
+- Task Shard Context Control Eval
+
+These sets are designed to validate schema, scoring, adapters, and workflow
+shape. They are not intended to estimate real-world prevalence.
 
 ## Evaluation Protocol
 
@@ -48,8 +60,9 @@ Each evaluator reads `data/cases.jsonl` and emits predictions with:
 - `confidence`
 - `source`
 
-The scorer compares `(case_id, finding_type)` pairs and reports precision,
-recall, F1, false positives, and false negatives.
+The scorer compares `(case_id, finding_type)` pairs and reports aggregate and
+per-finding precision, recall, F1, false positives, false negatives, and
+token-F1 evidence-span overlap for true positives.
 
 ## Baselines
 
@@ -64,30 +77,43 @@ Regex baseline:
 LLM judge baseline:
 
 - included as an offline no-op baseline
-- not run in v0.1 because local staging forbids provider/model calls
+- not run by default because this repo forbids provider/model calls without
+  explicit configuration
 
 CtxGov adapter:
 
-- local output-contract stub in this repository
-- must be replaced by real CtxGov evaluator output before public claims
+- `heuristic` mode: transparent pattern adapter that does not read labels
+- `doctor` mode: invokes local `ctxgov.cli doctor` over materialized case
+  workspaces
+- neither mode makes a public benchmark claim
 
 ## Results
 
 The local run should report scaffold metrics for:
 
 - regex baseline
-- CtxGov adapter stub
+- CtxGov heuristic adapter
+- CtxGov doctor adapter when a local CtxGov checkout is provided
 
-Observed local scaffold metrics on 2026-06-03:
+Observed v0.1 local scaffold metrics on 2026-06-03:
 
 | Evaluator | Precision | Recall | F1 | Notes |
 | --- | ---: | ---: | ---: | --- |
 | regex baseline | 0.9524 | 0.9091 | 0.9302 | Transparent brittle baseline. |
-| CtxGov adapter stub | 1.0000 | 1.0000 | 1.0000 | Mirrors labels to verify output contract. |
+| CtxGov heuristic adapter | 0.5000 | 0.0455 | 0.0833 | Does not read labels; narrow pattern adapter. |
+
+Observed v0.2 local scaffold metrics on 2026-06-03:
+
+| Evaluator | Precision | Recall | F1 | Mean Evidence Token-F1 | Notes |
+| --- | ---: | ---: | ---: | ---: | --- |
+| regex baseline | 1.0000 | 1.0000 | 1.0000 | 0.9143 | Transparent rules over public trace-pattern data; overfits scaffold patterns. |
+| CtxGov heuristic adapter | 1.0000 | 1.0000 | 1.0000 | 0.5803 | Does not read labels, but remains a pattern adapter over public data. |
+| CtxGov doctor adapter | 0.3158 | 0.1200 | 0.1739 | 0.2000 | Real local CtxGov doctor invocation; exposes taxonomy and adapter gaps. |
 
 Do not quote these as public benchmark results. They are reproducibility checks
-for the benchmark harness, and the adapter result is not a real evaluator
-measurement.
+for the benchmark harness. The v0.2 doctor result is the only real CtxGov
+invocation result, and it shows current coverage gaps rather than benchmark
+readiness.
 
 ## Error Analysis
 
@@ -111,15 +137,14 @@ This draft does not claim:
 - real-world prevalence
 - adoption evidence
 
-Before publication, the benchmark needs real trace-derived cases, a hidden
-holdout, independent reviewer labels, and a reproducible data-construction
-section.
+Before benchmark publication, this needs real trace-derived cases with reviewer
+approval, independently administered hidden labels, hard negative controls,
+multi-label policy, and a reproducible data-construction section.
 
 ## Future Work
 
-- add a real CtxGov evaluator adapter
+- improve the real CtxGov doctor adapter mappings and upstream CtxGov findings
 - add real saved workflow traces
 - add hard negative controls
-- replace adapter stub with actual CtxGov evaluator output
 - add report rendering and demo GIF
 - collect independent FP/FN reviewer notes

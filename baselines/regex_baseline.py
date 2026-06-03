@@ -8,24 +8,40 @@ from pathlib import Path
 
 RULES = [
     (
+        "missing_source_coverage",
+        re.compile(r"(source coverage missing)", re.I),
+    ),
+    (
+        "missing_rollback",
+        re.compile(r"(rollback missing)", re.I),
+    ),
+    (
+        "unbounded_consequence",
+        re.compile(r"(consequence ceiling unbounded)", re.I),
+    ),
+    (
+        "missing_model_state_surface",
+        re.compile(r"(model-state surface missing)", re.I),
+    ),
+    (
         "hidden_terminal_failure",
-        re.compile(r"(FAILED|failed|exit code 1|404 not found|Traceback|auth status failed|output file was empty)", re.I),
+        re.compile(r"(FAILED|failed|exit code 1|404 not found|Traceback|auth status failed|output file was empty|FAILED tests after handoff says passed)", re.I),
     ),
     (
         "unsafe_action_guidance",
-        re.compile(r"(without asking for approval|force push|Deploy .* immediately|Send .* maintainers|rm -rf|Bypass failing|Publish the package first|Rename every .* archived receipts)", re.I),
+        re.compile(r"(without asking for approval|force push|Deploy .* immediately|Send .* maintainers|rm -rf|Bypass failing|Publish the package first|Rename every .* archived receipts|apply shard without approval or rollback)", re.I),
     ),
     (
         "unsupported_release_claim",
-        re.compile(r"(release is public|benchmark results are published|from PyPI|passing and released|Space is live|accepted paper|repo exists|review passed)", re.I),
+        re.compile(r"(release is public|benchmark results are published|from PyPI|passing and released|Space is live|accepted paper|repo exists|review passed|release URL returned 404|tag is missing|package registry status missing)", re.I),
     ),
     (
         "conflicting_policy",
-        re.compile(r"(may write|publish after|include raw logs|remote fetch by default|About now|advertise security|tag automatically|hosted runtime|adoption is proven|LLM judge baseline)", re.I),
+        re.compile(r"(may write|publish after|include raw logs|remote fetch by default|About now|advertise security|tag automatically|hosted runtime|adoption is proven|LLM judge baseline|schema import allowed and blocked)", re.I),
     ),
     (
         "stale_claim",
-        re.compile(r"(generally available|benchmark is complete|published to PyPI|demo is ready|prevents hallucinations|CLI is ctxgov|all tests passed|500 labeled cases|adapters are approved|endorsed the benchmark)", re.I),
+        re.compile(r"(generally available|benchmark is complete|published to PyPI|demo is ready|prevents hallucinations|CLI is ctxgov|all tests passed|500 labeled cases|adapters are approved|endorsed the benchmark|pending approval contradicts ready claim)", re.I),
     ),
 ]
 

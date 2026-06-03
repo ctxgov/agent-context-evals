@@ -1,6 +1,6 @@
 # Agent Context Health Eval
 
-Status: public v0.1 skeleton for `ctxgov/agent-context-evals`.
+Status: public v0.2 evaluation-artifact skeleton for `ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
 not a public benchmark claim, security evaluation, provider compatibility
@@ -19,6 +19,10 @@ Finding families:
 - `unsupported_release_claim`
 - `unsafe_action_guidance`
 - `hidden_terminal_failure`
+- `missing_source_coverage`
+- `missing_rollback`
+- `unbounded_consequence`
+- `missing_model_state_surface`
 - clean controls with no expected finding
 
 ## Structure
@@ -29,6 +33,14 @@ agent-context-evals/
   data/
     cases.jsonl
     labels.jsonl
+    v0.2/
+      trace_pattern_cases.jsonl
+      trace_pattern_labels.jsonl
+      hidden_holdout_cases.jsonl
+      hidden_holdout_manifest.json
+      benchmark_families.json
+  adapters/
+    offline_context_adapters.py
   baselines/
     regex_baseline.py
     llm_judge_baseline.py
@@ -57,10 +69,31 @@ python3 scoring/score_findings.py --labels data/labels.jsonl --predictions repor
 python3 scoring/score_findings.py --labels data/labels.jsonl --predictions reports/ctxgov-adapter-results.jsonl
 ```
 
-The checked-in `ctxgov_adapter/run_ctxgov.py` is a local output-contract stub.
-Replace it with a real CtxGov invocation before using the adapter output as a
-result. The included `reports/ctxgov-adapter-results.jsonl` exists so the
-scorer and report shape can be inspected.
+For v0.2 trace-pattern data:
+
+```bash
+python3 scripts/generate_v02_data.py
+python3 baselines/regex_baseline.py --cases data/v0.2/trace_pattern_cases.jsonl --output reports/v0.2-regex-baseline-results.jsonl
+python3 ctxgov_adapter/run_ctxgov.py --cases data/v0.2/trace_pattern_cases.jsonl --output reports/v0.2-ctxgov-heuristic-results.jsonl --mode heuristic
+python3 scoring/score_findings.py --labels data/v0.2/trace_pattern_labels.jsonl --predictions reports/v0.2-regex-baseline-results.jsonl
+python3 scoring/score_findings.py --labels data/v0.2/trace_pattern_labels.jsonl --predictions reports/v0.2-ctxgov-heuristic-results.jsonl
+```
+
+For a real CtxGov doctor invocation, pass a local checkout of
+`https://github.com/ctxgov/ctxgov`:
+
+```bash
+python3 ctxgov_adapter/run_ctxgov.py \
+  --cases data/v0.2/trace_pattern_cases.jsonl \
+  --output reports/v0.2-ctxgov-doctor-results.jsonl \
+  --mode doctor \
+  --ctxgov-root /path/to/ctxgov
+```
+
+The v0.2 `heuristic` mode does not read labels, but it is still a transparent
+pattern adapter over public trace-pattern data. Treat it as scaffold validation,
+not as a research benchmark result. The `doctor` mode shells out to CtxGov's
+local `ctxgov.cli doctor` command with no provider/model call.
 
 ## Case Schema
 
@@ -89,14 +122,14 @@ Clean controls use `finding_type: "none"` and `must_flag: false`.
 
 ## Limitations
 
-The v0.1 data is synthetic and small. It is useful for schema, scorer, and
-workflow validation, not for public benchmark claims. It does not prove security
-coverage, agent safety, model reliability, provider compatibility, or real-world
-prevalence.
+The v0.1 and v0.2 data are synthetic or sanitized trace-pattern data. They are
+useful for schema, scorer, adapter, and workflow validation, not for public
+benchmark claims. They do not prove security coverage, agent safety, model
+reliability, provider compatibility, or real-world prevalence.
 
-Before a public benchmark claim, this needs real trace-derived cases, hidden
-holdout cases, negative controls, independent reviewer notes, and a documented
-data construction process.
+Before a public benchmark claim, this needs real trace-derived cases with
+reviewer approval, hard negative controls, independent reviewer labels, and a
+documented data construction process.
 
 ## Related Project
 
