@@ -1,0 +1,17 @@
+{
+  "case_count": 160,
+  "claim_boundary": "Deterministic local mutation scaffold; not an independently adjudicated benchmark.",
+  "clean_case_count": 40,
+  "label_count": 206,
+  "multi_label_case_count": 40,
+  "mutation_kinds": [
+    "canonical",
+    "cross_file",
+    "multi_label",
+    "negated_clean",
+    "order_shuffle",
+    "paraphrase",
+    "repaired_clean"
+  ],
+  "schema_id": "agent-context-evals.v05-mutation-manifest/v1"
+}

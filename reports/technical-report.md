@@ -1,6 +1,6 @@
 # Evaluating AI-Facing Context Health Before Agent Execution
 
-Status: technical report draft for the public v0.2 companion benchmark skeleton.
+Status: technical report draft for the public v0.5 companion evaluation artifact.
 
 ## Abstract
 
@@ -50,6 +50,18 @@ hidden-holdout case texts with labels withheld. The v0.2 families are:
 These sets are designed to validate schema, scoring, adapters, and workflow
 shape. They are not intended to estimate real-world prevalence.
 
+The v0.4 dataset adds 20 synthetic hard negatives. The v0.5 dataset adds 160
+deterministic mutation cases and 206 labels:
+
+- 120 positive cases
+- 40 clean controls
+- 40 multi-label cases
+- paraphrase, order-shuffle, cross-file, repaired-clean, and negated-clean
+  mutations
+
+The v0.5 split is a regression and artifact-readiness scaffold. It is not
+independently adjudicated trace data.
+
 ## Evaluation Protocol
 
 Each evaluator reads `data/cases.jsonl` and emits predictions with:
@@ -63,6 +75,10 @@ Each evaluator reads `data/cases.jsonl` and emits predictions with:
 The scorer compares `(case_id, finding_type)` pairs and reports aggregate and
 per-finding precision, recall, F1, false positives, false negatives, and
 token-F1 evidence-span overlap for true positives.
+
+For multi-label splits, `scoring/score_multilabel.py` treats each
+`(case_id, finding_type)` pair as one expected finding and separately reports
+case-level precision, recall, F1, and true negatives.
 
 ## Baselines
 
@@ -110,10 +126,17 @@ Observed v0.2 local scaffold metrics on 2026-06-03:
 | CtxGov heuristic adapter | 1.0000 | 1.0000 | 1.0000 | 0.5803 | Does not read labels, but remains a pattern adapter over public data. |
 | CtxGov doctor adapter | 0.3158 | 0.1200 | 0.1739 | 0.2000 | Real local CtxGov doctor invocation; exposes taxonomy and adapter gaps. |
 
+Observed v0.5 local mutation multi-label metrics on 2026-06-03:
+
+| Evaluator | Cases | Labels | Precision | Recall | F1 | Mean Evidence Token-F1 | Notes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| regex baseline | 160 | 206 | 1.0000 | 0.6205 | 0.7658 | 1.0000 | High precision, limited paraphrase and multi-label recall. |
+| CtxGov doctor adapter | 160 | 206 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | Local CtxGov doctor invocation over deterministic mutation scaffold. |
+
 Do not quote these as public benchmark results. They are reproducibility checks
-for the benchmark harness. The v0.2 doctor result is the only real CtxGov
-invocation result, and it shows current coverage gaps rather than benchmark
-readiness.
+for the harness, adapter, and local doctor coverage. The v0.5 doctor result is
+a deterministic scaffold readiness signal, not a real-world performance
+estimate.
 
 ## Error Analysis
 
@@ -124,6 +147,8 @@ Use the scorer output to review:
 - evidence spans that are too broad
 - finding-type confusion between stale and unsupported release claims
 - unsafe-action findings that are actually permissioned instructions
+- under-labeled multi-label cases where one evidence span implies both unsafe
+  action and missing rollback
 
 ## Limitations
 
@@ -138,13 +163,11 @@ This draft does not claim:
 - adoption evidence
 
 Before benchmark publication, this needs real trace-derived cases with reviewer
-approval, independently administered hidden labels, hard negative controls,
-multi-label policy, and a reproducible data-construction section.
+approval, independently administered hidden labels, larger hard negative
+controls, adjudication notes, and a reproducible data-construction section.
 
 ## Future Work
 
-- improve the real CtxGov doctor adapter mappings and upstream CtxGov findings
 - add real saved workflow traces
-- add hard negative controls
-- add report rendering and demo GIF
+- expand hard negative controls beyond deterministic clean cases
 - collect independent FP/FN reviewer notes
