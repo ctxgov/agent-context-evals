@@ -1,0 +1,33 @@
+{
+  "case_count": 54,
+  "claim_boundary": {
+    "adoption_claim": false,
+    "cli_beta_claim": false,
+    "hosted_runtime_claim": false,
+    "live_adapter_claim": false,
+    "package_publication_claim": false,
+    "provider_model_compatibility_claim": false,
+    "public_benchmark_claim": false,
+    "security_claim": false
+  },
+  "finding_counts": {
+    "none": 50,
+    "publication_state_drift": 1,
+    "repo_map_drift": 1,
+    "roadmap_pointer_drift": 1,
+    "version_surface_drift": 1
+  },
+  "hard_negative_count": 50,
+  "independent_review_status": "pending",
+  "label_count": 54,
+  "labels_public": true,
+  "limitations": [
+    "Public-safe local eval hardening artifact, not a public benchmark claim.",
+    "Hard negatives intentionally include quoted, historical, fixed, blocked, or negated risky-looking phrases.",
+    "Self-audit cases are derived from public CtxGov v0.6.11 public-surface drift corrections.",
+    "No provider/model call, network fetch, target write, package publication, or reviewer outreach."
+  ],
+  "reviewer_packet_labels_public": false,
+  "schema_id": "agent-context-evals.eval-hardening-suite/v0.8",
+  "self_audit_case_count": 4
+}

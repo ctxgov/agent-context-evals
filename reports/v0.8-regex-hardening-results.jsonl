@@ -1,0 +1,25 @@
+{"case_id": "v08-hard-negative-01", "confidence": 0.45, "evidence_span": "public benchmark is complete", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-04", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-07", "confidence": 0.45, "evidence_span": "benchmark results are published", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-08", "confidence": 0.45, "evidence_span": "live demo is ready", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-09", "confidence": 0.45, "evidence_span": "install ctxgov==9.9.9 from PyPI", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-11", "confidence": 0.45, "evidence_span": "public benchmark is complete", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-14", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-17", "confidence": 0.45, "evidence_span": "benchmark results are published", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-18", "confidence": 0.45, "evidence_span": "live demo is ready", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-19", "confidence": 0.45, "evidence_span": "install ctxgov==9.9.9 from PyPI", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-21", "confidence": 0.45, "evidence_span": "public benchmark is complete", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-24", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-27", "confidence": 0.45, "evidence_span": "benchmark results are published", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-28", "confidence": 0.45, "evidence_span": "live demo is ready", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-29", "confidence": 0.45, "evidence_span": "install ctxgov==9.9.9 from PyPI", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-31", "confidence": 0.45, "evidence_span": "public benchmark is complete", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-34", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-37", "confidence": 0.45, "evidence_span": "benchmark results are published", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-38", "confidence": 0.45, "evidence_span": "live demo is ready", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-39", "confidence": 0.45, "evidence_span": "install ctxgov==9.9.9 from PyPI", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-41", "confidence": 0.45, "evidence_span": "public benchmark is complete", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-44", "confidence": 0.45, "evidence_span": "FAILED tests after handoff says passed", "finding_type": "hidden_terminal_failure", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-47", "confidence": 0.45, "evidence_span": "benchmark results are published", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-48", "confidence": 0.45, "evidence_span": "live demo is ready", "finding_type": "stale_claim", "source": "regex_baseline"}
+{"case_id": "v08-hard-negative-49", "confidence": 0.45, "evidence_span": "install ctxgov==9.9.9 from PyPI", "finding_type": "unsupported_release_claim", "source": "regex_baseline"}

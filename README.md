@@ -1,6 +1,7 @@
 # Agent Context Health Eval
 
-Status: public v0.7 evaluation artifact for `ctxgov/agent-context-evals`.
+Status: public v0.8 evaluation-hardening artifact for
+`ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
 not a public benchmark claim, security evaluation, provider compatibility
@@ -23,6 +24,10 @@ Finding families:
 - `missing_rollback`
 - `unbounded_consequence`
 - `missing_model_state_surface`
+- `publication_state_drift`
+- `repo_map_drift`
+- `version_surface_drift`
+- `roadmap_pointer_drift`
 - clean controls with no expected finding
 
 ## Structure
@@ -57,6 +62,10 @@ agent-context-evals/
       trace_shaped_cases.jsonl
       trace_shaped_labels.jsonl
       trace_shaped_manifest.json
+    v0.8/
+      eval_hardening_cases.jsonl
+      eval_hardening_labels.jsonl
+      eval_hardening_manifest.json
   adapters/
     offline_context_adapters.py
     v07_trace_adapters.py
@@ -92,6 +101,7 @@ agent-context-evals/
     v0.5-results.md
     v0.6-results.md
     v0.7-results.md
+    v0.8-results.md
   examples/
     clean_repo/
     stale_claim/
@@ -251,6 +261,18 @@ handoff summaries, AGENTS/Cursor/CLAUDE-style rules, release notes, GitHub
 issue/PR snippets, package registry manifests, local transcripts, and memory
 traces. It is a local reproducibility artifact, not a public benchmark claim.
 
+For v0.8 eval hardening:
+
+```bash
+python3 scripts/generate_v08_eval_hardening.py
+python3 scripts/check_v08_reviewer_packet.py
+python3 -m unittest tests.test_v08_eval_hardening -v
+```
+
+The v0.8 suite adds 50 public-safe hard negatives and 4 CtxGov v0.6.11
+self-audit cases. It also adds a blind reviewer protocol and adjudication
+template. This is local eval hardening only: No public benchmark claim. No provider/model call. No adoption claim. No package, hosted runtime, live adapter, or CLI beta claim.
+
 ## Case Schema
 
 Each `data/cases.jsonl` row contains:
@@ -325,4 +347,4 @@ adapter path, not general benchmark performance.
 
 - CtxGov main repo: `https://github.com/ctxgov/ctxgov`
 - CtxGov project page: `https://ctxgov.github.io/ctxgov/`
-- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.6.0`
+- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.8.0`
