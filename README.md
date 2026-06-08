@@ -1,6 +1,6 @@
 # Agent Context Health Eval
 
-Status: public v0.10 saved-trace machine-evidence artifact for
+Status: public v0.11 fresh-clone reproducibility artifact for
 `ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
@@ -131,6 +131,7 @@ agent-context-evals/
 ## Quick Run
 
 ```bash
+python3 scripts/check_v11_fresh_clone_receipt.py
 python3 scripts/check_v10_saved_trace_readiness.py
 ```
 
@@ -316,6 +317,25 @@ local run page. It is still local machine evidence only: No public benchmark
 claim. No provider/model call. No adoption claim. No human reviewer claim. No
 package, hosted runtime, live adapter, or CLI beta claim.
 
+For v0.11 fresh-clone reproducibility:
+
+```bash
+python3 scripts/check_v11_fresh_clone_receipt.py
+python3 -m unittest tests.test_v11_fresh_clone_reproducibility -v
+```
+
+The v0.11 release adds a checked-in fresh-clone reproducibility receipt for the
+v0.10.0 public local evidence path and a CI-safe receipt gate. The generator is
+an explicit release operation:
+
+```bash
+python3 scripts/run_fresh_clone_reproducibility.py --ref v0.10.0
+```
+
+It is still local machine evidence only: No public benchmark claim. No
+provider/model call. No adoption claim. No human reviewer claim. No package,
+hosted runtime, live adapter, or stable protocol claim.
+
 ## Case Schema
 
 Each `data/cases.jsonl` row contains:
@@ -356,8 +376,9 @@ workflow, and demo validation. They do not prove security coverage, agent
 safety, model reliability, provider compatibility, or real-world prevalence.
 The v0.9 machine-evidence release adds hidden holdout custody and reproducible
 local scoring. The v0.10 saved-trace release adds a redacted public-safe
-dogfood cohort and redaction receipt. These still do not replace independent
-human review or external adoption evidence.
+dogfood cohort and redaction receipt. The v0.11 release adds a fresh-clone
+reproducibility receipt for the v0.10.0 public local evidence path. These still
+do not replace independent human review or external adoption evidence.
 
 Before a public benchmark claim, this needs real trace-derived cases with
 reviewer approval, hard negative controls, independent reviewer labels, and a
@@ -381,6 +402,7 @@ Ready for public project surface:
   scoring, and reviewer-proxy adjudication fixture
 - v0.10 saved-trace machine-evidence release with redaction receipt, CI gates,
   and a 5-minute local run path
+- v0.11 fresh-clone reproducibility receipt and CI-safe receipt gate
 
 Not ready for benchmark claims:
 
@@ -398,4 +420,4 @@ adapter path, not general benchmark performance.
 
 - CtxGov main repo: `https://github.com/ctxgov/ctxgov`
 - CtxGov project page: `https://ctxgov.github.io/ctxgov/`
-- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.10.0`
+- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.11.0`

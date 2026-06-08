@@ -16,5 +16,7 @@ jobs:
         run: python3 scripts/check_v09_machine_evidence_readiness.py
       - name: v0.10 saved-trace readiness
         run: python3 scripts/check_v10_saved_trace_readiness.py
+      - name: v0.11 fresh-clone receipt readiness
+        run: python3 scripts/check_v11_fresh_clone_receipt.py
       - name: unit tests
         run: python3 -m unittest discover -s tests -v
