@@ -1,0 +1,20 @@
+name: Local Evidence Gates
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  local-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: v0.9 machine-evidence readiness
+        run: python3 scripts/check_v09_machine_evidence_readiness.py
+      - name: v0.10 saved-trace readiness
+        run: python3 scripts/check_v10_saved_trace_readiness.py
+      - name: unit tests
+        run: python3 -m unittest discover -s tests -v

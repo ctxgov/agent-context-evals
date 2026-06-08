@@ -1,0 +1,24 @@
+{
+  "cases_path": "data/v0.10/saved_trace_cases.jsonl",
+  "cases_sha256": "4273846d75f3e0b6d221c7cb78b969338831aa79ec123c19ebfc1cc18010e97e",
+  "created_date": "2026-06-08",
+  "custody_status": "sealed_not_scored_publicly",
+  "dataset_id": "agent-context-health-v0.10-saved-trace-machine-evidence",
+  "hidden_holdout_case_count": 6,
+  "hidden_holdout_case_ids": [
+    "v10-saved-trace-025",
+    "v10-saved-trace-026",
+    "v10-saved-trace-027",
+    "v10-saved-trace-028",
+    "v10-saved-trace-029",
+    "v10-saved-trace-030"
+  ],
+  "human_reviewer_claim_allowed": false,
+  "labels_available_to_default_scoring": false,
+  "labels_published": false,
+  "public_benchmark_claim_allowed": false,
+  "public_labels_path": "data/v0.10/saved_trace_labels.jsonl",
+  "public_labels_sha256": "5e491915c71c66539b57ffb58d9a6ac68283d116b6cbcbdcaf9876de6c4aea9e",
+  "schema_version": "ach-hidden-holdout-custody-v0.10",
+  "sealed_label_manifest_sha256": "3c225ca553b23c3b22938cec9978ec27a40accf421cf113d10639f49dd2b2296"
+}

@@ -101,7 +101,7 @@ def scrub_local_paths(value: Any) -> Any:
 
 def write_markdown_summary(path: Path, report: dict[str, Any]) -> None:
     lines = [
-        "# v0.9 Machine Evidence Report",
+        f"# {report['release_version']} Machine Evidence Report",
         "",
         f"Status: `{report['status']}`",
         "",
@@ -118,6 +118,28 @@ def write_markdown_summary(path: Path, report: dict[str, Any]) -> None:
             f"- `{name}`: precision `{score['precision']}`, recall `{score['recall']}`, "
             f"F1 `{score['f1']}`, FP `{score['false_positive_count']}`, "
             f"FN `{score['false_negative_count']}`"
+        )
+    lines.extend(
+        [
+            "",
+            "## How To Read Low Baseline Scores",
+            "",
+            report["baseline_interpretation"]["low_score_interpretation"],
+            "",
+            "Transparent baselines are intentionally weak pressure gauges. Their",
+            "misses and false positives are useful error-analysis inputs, not",
+            "public benchmark performance claims.",
+        ]
+    )
+    if "redaction_receipt" in report:
+        lines.extend(
+            [
+                "",
+                "## Redaction",
+                "",
+                f"- source selection: `{report['redaction_receipt']['source_selection']}`",
+                f"- raw private trace published: `{str(report['redaction_receipt']['raw_private_trace_published']).lower()}`",
+            ]
         )
     lines.extend(
         [
@@ -146,6 +168,9 @@ def build_report(
     labels_path: Path,
     holdout_custody_path: Path,
     output_path: Path,
+    redaction_receipt_path: Path | None = None,
+    release_version: str = "v0.9",
+    dataset: str = "agent-context-health-v0.9-machine-evidence",
 ) -> dict[str, Any]:
     validate_cases = load_module("ach_validate_cases", ROOT / "scripts" / "validate_cases.py")
     score_findings = load_module(
@@ -173,10 +198,11 @@ def build_report(
         raise RuntimeError(f"hidden holdout labels leaked: {', '.join(hidden_label_leak_ids)}")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    prefix = release_version.replace(".", ".")
     prediction_files = {
-        "noop_baseline": output_path.parent / "v0.9-noop-baseline-results.jsonl",
-        "regex_baseline": output_path.parent / "v0.9-regex-baseline-results.jsonl",
-        "ctxgov_adapter_heuristic": output_path.parent / "v0.9-ctxgov-heuristic-results.jsonl",
+        "noop_baseline": output_path.parent / f"{prefix}-noop-baseline-results.jsonl",
+        "regex_baseline": output_path.parent / f"{prefix}-regex-baseline-results.jsonl",
+        "ctxgov_adapter_heuristic": output_path.parent / f"{prefix}-ctxgov-heuristic-results.jsonl",
     }
 
     regex_public, regex_hidden = filter_public_predictions(
@@ -208,10 +234,16 @@ def build_report(
         error_analysis[name] = summarize_errors(score_report)
 
     holdout_custody = json.loads(holdout_custody_path.read_text(encoding="utf-8"))
+    redaction_receipt = (
+        json.loads(redaction_receipt_path.read_text(encoding="utf-8"))
+        if redaction_receipt_path is not None
+        else None
+    )
     report = {
-        "schema_version": "ach-machine-evidence-report-v0.9",
+        "schema_version": f"ach-machine-evidence-report-{release_version}",
+        "release_version": release_version,
         "status": "pass_machine_evidence_public_label_scoring",
-        "dataset": "agent-context-health-v0.9-machine-evidence",
+        "dataset": dataset,
         "cases": str(cases_path.relative_to(ROOT)),
         "cases_sha256": sha256_file(cases_path),
         "public_labels": str(labels_path.relative_to(ROOT)),
@@ -219,6 +251,10 @@ def build_report(
         "validation": validation,
         "baselines": baselines,
         "error_analysis": error_analysis,
+        "baseline_interpretation": {
+            "low_score_interpretation": "Low transparent-baseline scores are treated as hard-negative pressure and error-analysis signal, not as public benchmark performance.",
+            "performance_claim_allowed": False,
+        },
         "holdout_custody": holdout_custody,
         "hidden_labels_used_for_scoring": False,
         "hidden_label_leak_ids": hidden_label_leak_ids,
@@ -231,6 +267,8 @@ def build_report(
         "provider_model_compatibility_claim_allowed": False,
         "package_release_claim_allowed": False,
     }
+    if redaction_receipt is not None:
+        report["redaction_receipt"] = redaction_receipt
     output_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     write_markdown_summary(output_path.with_suffix(".md"), report)
     return report
@@ -245,6 +283,9 @@ def main() -> int:
         type=Path,
         default=ROOT / "release" / "v0.9-machine-evidence" / "hidden-holdout-custody.json",
     )
+    parser.add_argument("--redaction-receipt", type=Path)
+    parser.add_argument("--release-version", default="v0.9")
+    parser.add_argument("--dataset", default="agent-context-health-v0.9-machine-evidence")
     parser.add_argument("--output", type=Path, default=ROOT / "reports" / "v0.9-machine-evidence-report.json")
     args = parser.parse_args()
 
@@ -256,6 +297,13 @@ def main() -> int:
         else ROOT / args.holdout_custody
     )
     output_path = args.output if args.output.is_absolute() else ROOT / args.output
+    redaction_receipt_path = (
+        None
+        if args.redaction_receipt is None
+        else args.redaction_receipt
+        if args.redaction_receipt.is_absolute()
+        else ROOT / args.redaction_receipt
+    )
 
     try:
         report = build_report(
@@ -263,6 +311,9 @@ def main() -> int:
             labels_path=labels_path,
             holdout_custody_path=holdout_custody_path,
             output_path=output_path,
+            redaction_receipt_path=redaction_receipt_path,
+            release_version=args.release_version,
+            dataset=args.dataset,
         )
     except Exception as exc:  # pragma: no cover - CLI boundary
         print(f"machine evidence report failed: {exc}", file=sys.stderr)

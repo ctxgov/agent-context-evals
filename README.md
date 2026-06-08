@@ -1,6 +1,6 @@
 # Agent Context Health Eval
 
-Status: public v0.9 machine-evidence artifact for
+Status: public v0.10 saved-trace machine-evidence artifact for
 `ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
@@ -72,6 +72,12 @@ agent-context-evals/
       machine_evidence_manifest.json
       machine_evidence_splits.json
       dataset_card.md
+    v0.10/
+      saved_trace_cases.jsonl
+      saved_trace_labels.jsonl
+      saved_trace_manifest.json
+      saved_trace_splits.json
+      dataset_card.md
   adapters/
     offline_context_adapters.py
     v07_trace_adapters.py
@@ -112,6 +118,8 @@ agent-context-evals/
     v0.8-results.md
     v0.9-machine-evidence-report.md
     v0.9-machine-evidence-report.json
+    v0.10-machine-evidence-report.md
+    v0.10-machine-evidence-report.json
   examples/
     clean_repo/
     stale_claim/
@@ -123,11 +131,10 @@ agent-context-evals/
 ## Quick Run
 
 ```bash
-python3 baselines/regex_baseline.py --cases data/cases.jsonl --output reports/regex-baseline-results.jsonl
-python3 ctxgov_adapter/run_ctxgov.py --cases data/cases.jsonl --output reports/ctxgov-adapter-results.jsonl
-python3 scoring/score_findings.py --labels data/labels.jsonl --predictions reports/regex-baseline-results.jsonl
-python3 scoring/score_findings.py --labels data/labels.jsonl --predictions reports/ctxgov-adapter-results.jsonl
+python3 scripts/check_v10_saved_trace_readiness.py
 ```
+
+The 5-minute local path is documented in `docs/5-minute-local-run.md`.
 
 For v0.2 trace-pattern data:
 
@@ -296,6 +303,19 @@ reviewer-proxy adjudication fixture. This is local machine evidence only: No
 public benchmark claim. No provider/model call. No adoption claim. No human
 reviewer claim. No package, hosted runtime, live adapter, or CLI beta claim.
 
+For v0.10 saved-trace machine evidence:
+
+```bash
+python3 scripts/check_v10_saved_trace_readiness.py
+python3 -m unittest tests.test_v10_saved_trace_machine_evidence -v
+```
+
+The v0.10 suite adds a deterministic non-picked public-safe saved-trace cohort,
+redaction receipt, hidden holdout custody, GitHub Actions CI, and a 5-minute
+local run page. It is still local machine evidence only: No public benchmark
+claim. No provider/model call. No adoption claim. No human reviewer claim. No
+package, hosted runtime, live adapter, or CLI beta claim.
+
 ## Case Schema
 
 Each `data/cases.jsonl` row contains:
@@ -335,8 +355,9 @@ negated context. These artifacts are useful for schema, scorer, adapter,
 workflow, and demo validation. They do not prove security coverage, agent
 safety, model reliability, provider compatibility, or real-world prevalence.
 The v0.9 machine-evidence release adds hidden holdout custody and reproducible
-local scoring, but it still does not replace independent human review or
-external adoption evidence.
+local scoring. The v0.10 saved-trace release adds a redacted public-safe
+dogfood cohort and redaction receipt. These still do not replace independent
+human review or external adoption evidence.
 
 Before a public benchmark claim, this needs real trace-derived cases with
 reviewer approval, hard negative controls, independent reviewer labels, and a
@@ -358,6 +379,8 @@ Ready for public project surface:
 - v0.6 adversarial hard negatives with 60 clean controls and span diagnostics
 - v0.9 machine-evidence release with sealed hidden holdout custody, baseline
   scoring, and reviewer-proxy adjudication fixture
+- v0.10 saved-trace machine-evidence release with redaction receipt, CI gates,
+  and a 5-minute local run path
 
 Not ready for benchmark claims:
 
@@ -375,4 +398,4 @@ adapter path, not general benchmark performance.
 
 - CtxGov main repo: `https://github.com/ctxgov/ctxgov`
 - CtxGov project page: `https://ctxgov.github.io/ctxgov/`
-- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.9.0`
+- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.10.0`

@@ -1,0 +1,18 @@
+{
+  "case_count": 30,
+  "claim_boundary": {
+    "adoption_claim_allowed": false,
+    "human_reviewer_claim_allowed": false,
+    "package_release_claim_allowed": false,
+    "provider_model_compatibility_claim_allowed": false,
+    "public_benchmark_claim_allowed": false
+  },
+  "clean_control_count": 8,
+  "dataset_id": "agent-context-health-v0.10-saved-trace-machine-evidence",
+  "hidden_holdout_case_count": 6,
+  "positive_label_count": 16,
+  "public_labeled_case_count": 24,
+  "schema_version": "ach-saved-trace-machine-evidence-manifest-v0.10",
+  "source_selection": "non_picked_saved_trace_cohort",
+  "status": "public_machine_evidence_release"
+}

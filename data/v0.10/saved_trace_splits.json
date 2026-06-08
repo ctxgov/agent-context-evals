@@ -1,0 +1,48 @@
+{
+  "schema_version": "ach-splits-v0.10",
+  "splits": [
+    {
+      "case_ids": [
+        "v10-saved-trace-001",
+        "v10-saved-trace-002",
+        "v10-saved-trace-003",
+        "v10-saved-trace-004",
+        "v10-saved-trace-005",
+        "v10-saved-trace-006",
+        "v10-saved-trace-007",
+        "v10-saved-trace-008",
+        "v10-saved-trace-009",
+        "v10-saved-trace-010",
+        "v10-saved-trace-011",
+        "v10-saved-trace-012",
+        "v10-saved-trace-013",
+        "v10-saved-trace-014",
+        "v10-saved-trace-015",
+        "v10-saved-trace-016",
+        "v10-saved-trace-017",
+        "v10-saved-trace-018",
+        "v10-saved-trace-019",
+        "v10-saved-trace-020",
+        "v10-saved-trace-021",
+        "v10-saved-trace-022",
+        "v10-saved-trace-023",
+        "v10-saved-trace-024"
+      ],
+      "labels_published": true,
+      "name": "public_saved_trace"
+    },
+    {
+      "case_ids": [
+        "v10-saved-trace-025",
+        "v10-saved-trace-026",
+        "v10-saved-trace-027",
+        "v10-saved-trace-028",
+        "v10-saved-trace-029",
+        "v10-saved-trace-030"
+      ],
+      "custody_receipt": "../../release/v0.10-machine-evidence/hidden-holdout-custody.json",
+      "labels_published": false,
+      "name": "hidden_holdout"
+    }
+  ]
+}
