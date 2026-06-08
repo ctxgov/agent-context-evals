@@ -1,0 +1,37 @@
+{
+  "schema_version": "ach-hidden-holdout-custody-v0.9",
+  "dataset_id": "agent-context-health-v0.9-machine-evidence-candidate",
+  "custody_status": "sealed_not_scored_publicly",
+  "created_date": "2026-06-08",
+  "cases_path": "data/v0.9/machine_evidence_cases.jsonl",
+  "cases_sha256": "bb95b48fd5902805a990b3fda09ce9b2c6344eb430e63ae0dc717c0eea035b45",
+  "public_labels_path": "data/v0.9/machine_evidence_labels.jsonl",
+  "public_labels_sha256": "d73ba7167ce4ebdc62ad684ea597bac2120512712d95c5df9dbed1412adee543",
+  "hidden_holdout_case_count": 6,
+  "hidden_holdout_case_ids": [
+    "ach-case-v09-019",
+    "ach-case-v09-020",
+    "ach-case-v09-021",
+    "ach-case-v09-022",
+    "ach-case-v09-023",
+    "ach-case-v09-024"
+  ],
+  "sealed_label_manifest_sha256": "f5499b82c8c2741414e5ec1dd87e46017f864fc0bd266507de4005fc9f58ec17",
+  "sealed_label_manifest_shape": {
+    "fields": [
+      "case_id",
+      "finding_type"
+    ],
+    "labels_published": false,
+    "labels_available_to_default_scoring": false
+  },
+  "claim_boundary": {
+    "human_reviewer_claim_allowed": false,
+    "adoption_claim_allowed": false,
+    "public_benchmark_claim_allowed": false,
+    "provider_model_compatibility_claim_allowed": false,
+    "package_release_claim_allowed": false
+  },
+  "author_approval_required_for_unseal": true,
+  "publication_allowed_without_author_approval": false
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "ach-reviewer-proxy-adjudication-v0.9",
+  "reviewer_source": "machine_proxy",
+  "purpose": "Exercise the hidden-label-safe adjudication shape without claiming independent human review.",
+  "human_reviewer_claim_allowed": false,
+  "adoption_claim_allowed": false,
+  "public_benchmark_claim_allowed": false,
+  "can_replace_human_external_review": false,
+  "proxy_label_file": "review/reviewer-proxy-labels.jsonl",
+  "proxy_label_count": 10,
+  "adjudicated_disagreements": [
+    {
+      "case_id": "ach-case-v09-002",
+      "proxy_finding_type": "stale_claim",
+      "adjudicated_finding_type": "unsupported_release_claim",
+      "reason": "The core issue is an install/package release claim, not merely stale wording."
+    },
+    {
+      "case_id": "ach-case-v09-004",
+      "proxy_finding_type": "unsafe_action_guidance",
+      "adjudicated_finding_type": "conflicting_policy",
+      "reason": "The strongest label is the contradiction between owner approval and immediate write guidance."
+    },
+    {
+      "case_id": "ach-case-v09-011",
+      "proxy_finding_type": "unsupported_release_claim",
+      "adjudicated_finding_type": "stale_claim",
+      "reason": "The case is about carrying a blocked benchmark-publication state forward as if it were already released."
+    }
+  ],
+  "adjudication_inputs": {
+    "public_labels": "data/v0.9/labels.jsonl",
+    "hidden_labels_used": false,
+    "human_notes_used": false
+  }
+}

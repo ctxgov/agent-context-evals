@@ -1,0 +1,42 @@
+{
+  "schema_version": "ach-splits-v0.9",
+  "splits": [
+    {
+      "name": "public_dev",
+      "case_ids": [
+        "ach-case-v09-001",
+        "ach-case-v09-002",
+        "ach-case-v09-003",
+        "ach-case-v09-004",
+        "ach-case-v09-005",
+        "ach-case-v09-006",
+        "ach-case-v09-007",
+        "ach-case-v09-008",
+        "ach-case-v09-009",
+        "ach-case-v09-010",
+        "ach-case-v09-011",
+        "ach-case-v09-012",
+        "ach-case-v09-013",
+        "ach-case-v09-014",
+        "ach-case-v09-015",
+        "ach-case-v09-016",
+        "ach-case-v09-017",
+        "ach-case-v09-018"
+      ],
+      "labels_published": true
+    },
+    {
+      "name": "hidden_holdout",
+      "case_ids": [
+        "ach-case-v09-019",
+        "ach-case-v09-020",
+        "ach-case-v09-021",
+        "ach-case-v09-022",
+        "ach-case-v09-023",
+        "ach-case-v09-024"
+      ],
+      "labels_published": false,
+      "custody_receipt": "../../release/v0.9-machine-evidence/hidden-holdout-custody.json"
+    }
+  ]
+}

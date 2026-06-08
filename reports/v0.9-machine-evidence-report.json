@@ -1,0 +1,1686 @@
+{
+  "adoption_claim_allowed": false,
+  "author_approval_required": false,
+  "baselines": {
+    "ctxgov_adapter_heuristic": {
+      "hidden_predictions_ignored_count": 0,
+      "prediction_count": 2,
+      "predictions": "reports/v0.9-ctxgov-heuristic-results.jsonl",
+      "score": {
+        "cases": "data/v0.9/machine_evidence_cases.jsonl",
+        "clean_control_count": 6,
+        "clean_control_false_positive_count": 0,
+        "clean_control_false_positive_rate": 0.0,
+        "evidence_span": {
+          "evaluated_true_positive_count": 1,
+          "mean_token_f1": 0.25
+        },
+        "expected_positive_count": 12,
+        "f1": 0.1429,
+        "false_negative_count": 11,
+        "false_negatives": [
+          {
+            "case_id": "ach-case-v09-001",
+            "finding_type": "stale_claim"
+          },
+          {
+            "case_id": "ach-case-v09-002",
+            "finding_type": "unsupported_release_claim"
+          },
+          {
+            "case_id": "ach-case-v09-004",
+            "finding_type": "conflicting_policy"
+          },
+          {
+            "case_id": "ach-case-v09-005",
+            "finding_type": "unsafe_action_guidance"
+          },
+          {
+            "case_id": "ach-case-v09-006",
+            "finding_type": "missing_rollback"
+          },
+          {
+            "case_id": "ach-case-v09-007",
+            "finding_type": "unbounded_consequence"
+          },
+          {
+            "case_id": "ach-case-v09-008",
+            "finding_type": "missing_model_state_surface"
+          },
+          {
+            "case_id": "ach-case-v09-009",
+            "finding_type": "unsupported_release_claim"
+          },
+          {
+            "case_id": "ach-case-v09-010",
+            "finding_type": "hidden_terminal_failure"
+          },
+          {
+            "case_id": "ach-case-v09-011",
+            "finding_type": "stale_claim"
+          },
+          {
+            "case_id": "ach-case-v09-012",
+            "finding_type": "conflicting_policy"
+          }
+        ],
+        "false_positive_count": 1,
+        "false_positives": [
+          {
+            "case_id": "ach-case-v09-010",
+            "finding_type": "unsupported_release_claim"
+          }
+        ],
+        "labels": "data/v0.9/machine_evidence_labels.jsonl",
+        "per_finding_type": {
+          "conflicting_policy": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "hidden_terminal_failure": {
+            "f1": 0.6667,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 1.0,
+            "recall": 0.5,
+            "true_positive_count": 1
+          },
+          "missing_model_state_surface": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "missing_rollback": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "stale_claim": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unbounded_consequence": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unsafe_action_guidance": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unsupported_release_claim": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          }
+        },
+        "per_source_family": {
+          "agent_rules": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "ascr_contract": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "handoff_packet": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "memory_trace": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "oss_efficiency": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "package_manifest": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "project_docs": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "release_note": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "release_runbook": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "state_transition": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "task_shard": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "terminal_log": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.5,
+            "false_negative_count": 1,
+            "false_positive_count": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "true_positive_count": 1
+          }
+        },
+        "precision": 0.5,
+        "predicted_positive_count": 2,
+        "predictions": "reports/v0.9-ctxgov-heuristic-results.jsonl",
+        "recall": 0.0833,
+        "true_positive_count": 1
+      }
+    },
+    "noop_baseline": {
+      "hidden_predictions_ignored_count": 0,
+      "prediction_count": 0,
+      "predictions": "reports/v0.9-noop-baseline-results.jsonl",
+      "score": {
+        "cases": "data/v0.9/machine_evidence_cases.jsonl",
+        "clean_control_count": 6,
+        "clean_control_false_positive_count": 0,
+        "clean_control_false_positive_rate": 0.0,
+        "evidence_span": {
+          "evaluated_true_positive_count": 0,
+          "mean_token_f1": 0.0
+        },
+        "expected_positive_count": 12,
+        "f1": 0.0,
+        "false_negative_count": 12,
+        "false_negatives": [
+          {
+            "case_id": "ach-case-v09-001",
+            "finding_type": "stale_claim"
+          },
+          {
+            "case_id": "ach-case-v09-002",
+            "finding_type": "unsupported_release_claim"
+          },
+          {
+            "case_id": "ach-case-v09-003",
+            "finding_type": "hidden_terminal_failure"
+          },
+          {
+            "case_id": "ach-case-v09-004",
+            "finding_type": "conflicting_policy"
+          },
+          {
+            "case_id": "ach-case-v09-005",
+            "finding_type": "unsafe_action_guidance"
+          },
+          {
+            "case_id": "ach-case-v09-006",
+            "finding_type": "missing_rollback"
+          },
+          {
+            "case_id": "ach-case-v09-007",
+            "finding_type": "unbounded_consequence"
+          },
+          {
+            "case_id": "ach-case-v09-008",
+            "finding_type": "missing_model_state_surface"
+          },
+          {
+            "case_id": "ach-case-v09-009",
+            "finding_type": "unsupported_release_claim"
+          },
+          {
+            "case_id": "ach-case-v09-010",
+            "finding_type": "hidden_terminal_failure"
+          },
+          {
+            "case_id": "ach-case-v09-011",
+            "finding_type": "stale_claim"
+          },
+          {
+            "case_id": "ach-case-v09-012",
+            "finding_type": "conflicting_policy"
+          }
+        ],
+        "false_positive_count": 0,
+        "false_positives": [],
+        "labels": "data/v0.9/machine_evidence_labels.jsonl",
+        "per_finding_type": {
+          "conflicting_policy": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "hidden_terminal_failure": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "missing_model_state_surface": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "missing_rollback": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "stale_claim": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unbounded_consequence": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unsafe_action_guidance": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unsupported_release_claim": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          }
+        },
+        "per_source_family": {
+          "agent_rules": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "ascr_contract": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "handoff_packet": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "memory_trace": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "oss_efficiency": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "package_manifest": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "project_docs": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "release_note": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "release_runbook": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "state_transition": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "task_shard": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "terminal_log": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          }
+        },
+        "precision": 0.0,
+        "predicted_positive_count": 0,
+        "predictions": "reports/v0.9-noop-baseline-results.jsonl",
+        "recall": 0.0,
+        "true_positive_count": 0
+      }
+    },
+    "regex_baseline": {
+      "hidden_predictions_ignored_count": 1,
+      "prediction_count": 1,
+      "predictions": "reports/v0.9-regex-baseline-results.jsonl",
+      "score": {
+        "cases": "data/v0.9/machine_evidence_cases.jsonl",
+        "clean_control_count": 6,
+        "clean_control_false_positive_count": 0,
+        "clean_control_false_positive_rate": 0.0,
+        "evidence_span": {
+          "evaluated_true_positive_count": 1,
+          "mean_token_f1": 1.0
+        },
+        "expected_positive_count": 12,
+        "f1": 0.1538,
+        "false_negative_count": 11,
+        "false_negatives": [
+          {
+            "case_id": "ach-case-v09-001",
+            "finding_type": "stale_claim"
+          },
+          {
+            "case_id": "ach-case-v09-002",
+            "finding_type": "unsupported_release_claim"
+          },
+          {
+            "case_id": "ach-case-v09-003",
+            "finding_type": "hidden_terminal_failure"
+          },
+          {
+            "case_id": "ach-case-v09-004",
+            "finding_type": "conflicting_policy"
+          },
+          {
+            "case_id": "ach-case-v09-005",
+            "finding_type": "unsafe_action_guidance"
+          },
+          {
+            "case_id": "ach-case-v09-006",
+            "finding_type": "missing_rollback"
+          },
+          {
+            "case_id": "ach-case-v09-007",
+            "finding_type": "unbounded_consequence"
+          },
+          {
+            "case_id": "ach-case-v09-008",
+            "finding_type": "missing_model_state_surface"
+          },
+          {
+            "case_id": "ach-case-v09-010",
+            "finding_type": "hidden_terminal_failure"
+          },
+          {
+            "case_id": "ach-case-v09-011",
+            "finding_type": "stale_claim"
+          },
+          {
+            "case_id": "ach-case-v09-012",
+            "finding_type": "conflicting_policy"
+          }
+        ],
+        "false_positive_count": 0,
+        "false_positives": [],
+        "labels": "data/v0.9/machine_evidence_labels.jsonl",
+        "per_finding_type": {
+          "conflicting_policy": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "hidden_terminal_failure": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "missing_model_state_surface": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "missing_rollback": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "stale_claim": {
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unbounded_consequence": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unsafe_action_guidance": {
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "unsupported_release_claim": {
+            "f1": 0.6667,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 1.0,
+            "recall": 0.5,
+            "true_positive_count": 1
+          }
+        },
+        "per_source_family": {
+          "agent_rules": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "ascr_contract": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "handoff_packet": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "memory_trace": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "oss_efficiency": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "package_manifest": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "project_docs": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "release_note": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.6667,
+            "false_negative_count": 1,
+            "false_positive_count": 0,
+            "precision": 1.0,
+            "recall": 0.5,
+            "true_positive_count": 1
+          },
+          "release_runbook": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "state_transition": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "task_shard": {
+            "clean_control_count": 1,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 0,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          },
+          "terminal_log": {
+            "clean_control_count": 0,
+            "clean_control_false_positive_count": 0,
+            "clean_control_false_positive_rate": 0.0,
+            "f1": 0.0,
+            "false_negative_count": 2,
+            "false_positive_count": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "true_positive_count": 0
+          }
+        },
+        "precision": 1.0,
+        "predicted_positive_count": 1,
+        "predictions": "reports/v0.9-regex-baseline-results.jsonl",
+        "recall": 0.0833,
+        "true_positive_count": 1
+      }
+    }
+  },
+  "cases": "data/v0.9/machine_evidence_cases.jsonl",
+  "cases_sha256": "bb95b48fd5902805a990b3fda09ce9b2c6344eb430e63ae0dc717c0eea035b45",
+  "dataset": "agent-context-health-v0.9-machine-evidence",
+  "error_analysis": {
+    "ctxgov_adapter_heuristic": {
+      "clean_control_false_positive_count": 0,
+      "false_negative_count": 11,
+      "false_negatives": [
+        {
+          "case_id": "ach-case-v09-001",
+          "finding_type": "stale_claim"
+        },
+        {
+          "case_id": "ach-case-v09-002",
+          "finding_type": "unsupported_release_claim"
+        },
+        {
+          "case_id": "ach-case-v09-004",
+          "finding_type": "conflicting_policy"
+        },
+        {
+          "case_id": "ach-case-v09-005",
+          "finding_type": "unsafe_action_guidance"
+        },
+        {
+          "case_id": "ach-case-v09-006",
+          "finding_type": "missing_rollback"
+        },
+        {
+          "case_id": "ach-case-v09-007",
+          "finding_type": "unbounded_consequence"
+        },
+        {
+          "case_id": "ach-case-v09-008",
+          "finding_type": "missing_model_state_surface"
+        },
+        {
+          "case_id": "ach-case-v09-009",
+          "finding_type": "unsupported_release_claim"
+        },
+        {
+          "case_id": "ach-case-v09-010",
+          "finding_type": "hidden_terminal_failure"
+        },
+        {
+          "case_id": "ach-case-v09-011",
+          "finding_type": "stale_claim"
+        },
+        {
+          "case_id": "ach-case-v09-012",
+          "finding_type": "conflicting_policy"
+        }
+      ],
+      "false_positive_count": 1,
+      "false_positives": [
+        {
+          "case_id": "ach-case-v09-010",
+          "finding_type": "unsupported_release_claim"
+        }
+      ],
+      "per_finding_type": {
+        "conflicting_policy": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "hidden_terminal_failure": {
+          "f1": 0.6667,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "true_positive_count": 1
+        },
+        "missing_model_state_surface": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "missing_rollback": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "stale_claim": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unbounded_consequence": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unsafe_action_guidance": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unsupported_release_claim": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        }
+      },
+      "per_source_family": {
+        "agent_rules": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "ascr_contract": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "handoff_packet": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "memory_trace": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "oss_efficiency": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "package_manifest": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "project_docs": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "release_note": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "release_runbook": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "state_transition": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "task_shard": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "terminal_log": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.5,
+          "false_negative_count": 1,
+          "false_positive_count": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "true_positive_count": 1
+        }
+      }
+    },
+    "noop_baseline": {
+      "clean_control_false_positive_count": 0,
+      "false_negative_count": 12,
+      "false_negatives": [
+        {
+          "case_id": "ach-case-v09-001",
+          "finding_type": "stale_claim"
+        },
+        {
+          "case_id": "ach-case-v09-002",
+          "finding_type": "unsupported_release_claim"
+        },
+        {
+          "case_id": "ach-case-v09-003",
+          "finding_type": "hidden_terminal_failure"
+        },
+        {
+          "case_id": "ach-case-v09-004",
+          "finding_type": "conflicting_policy"
+        },
+        {
+          "case_id": "ach-case-v09-005",
+          "finding_type": "unsafe_action_guidance"
+        },
+        {
+          "case_id": "ach-case-v09-006",
+          "finding_type": "missing_rollback"
+        },
+        {
+          "case_id": "ach-case-v09-007",
+          "finding_type": "unbounded_consequence"
+        },
+        {
+          "case_id": "ach-case-v09-008",
+          "finding_type": "missing_model_state_surface"
+        },
+        {
+          "case_id": "ach-case-v09-009",
+          "finding_type": "unsupported_release_claim"
+        },
+        {
+          "case_id": "ach-case-v09-010",
+          "finding_type": "hidden_terminal_failure"
+        },
+        {
+          "case_id": "ach-case-v09-011",
+          "finding_type": "stale_claim"
+        },
+        {
+          "case_id": "ach-case-v09-012",
+          "finding_type": "conflicting_policy"
+        }
+      ],
+      "false_positive_count": 0,
+      "false_positives": [],
+      "per_finding_type": {
+        "conflicting_policy": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "hidden_terminal_failure": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "missing_model_state_surface": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "missing_rollback": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "stale_claim": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unbounded_consequence": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unsafe_action_guidance": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unsupported_release_claim": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        }
+      },
+      "per_source_family": {
+        "agent_rules": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "ascr_contract": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "handoff_packet": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "memory_trace": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "oss_efficiency": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "package_manifest": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "project_docs": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "release_note": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "release_runbook": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "state_transition": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "task_shard": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "terminal_log": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        }
+      }
+    },
+    "regex_baseline": {
+      "clean_control_false_positive_count": 0,
+      "false_negative_count": 11,
+      "false_negatives": [
+        {
+          "case_id": "ach-case-v09-001",
+          "finding_type": "stale_claim"
+        },
+        {
+          "case_id": "ach-case-v09-002",
+          "finding_type": "unsupported_release_claim"
+        },
+        {
+          "case_id": "ach-case-v09-003",
+          "finding_type": "hidden_terminal_failure"
+        },
+        {
+          "case_id": "ach-case-v09-004",
+          "finding_type": "conflicting_policy"
+        },
+        {
+          "case_id": "ach-case-v09-005",
+          "finding_type": "unsafe_action_guidance"
+        },
+        {
+          "case_id": "ach-case-v09-006",
+          "finding_type": "missing_rollback"
+        },
+        {
+          "case_id": "ach-case-v09-007",
+          "finding_type": "unbounded_consequence"
+        },
+        {
+          "case_id": "ach-case-v09-008",
+          "finding_type": "missing_model_state_surface"
+        },
+        {
+          "case_id": "ach-case-v09-010",
+          "finding_type": "hidden_terminal_failure"
+        },
+        {
+          "case_id": "ach-case-v09-011",
+          "finding_type": "stale_claim"
+        },
+        {
+          "case_id": "ach-case-v09-012",
+          "finding_type": "conflicting_policy"
+        }
+      ],
+      "false_positive_count": 0,
+      "false_positives": [],
+      "per_finding_type": {
+        "conflicting_policy": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "hidden_terminal_failure": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "missing_model_state_surface": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "missing_rollback": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "stale_claim": {
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unbounded_consequence": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unsafe_action_guidance": {
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "unsupported_release_claim": {
+          "f1": 0.6667,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "true_positive_count": 1
+        }
+      },
+      "per_source_family": {
+        "agent_rules": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "ascr_contract": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "handoff_packet": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "memory_trace": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "oss_efficiency": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "package_manifest": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "project_docs": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "release_note": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.6667,
+          "false_negative_count": 1,
+          "false_positive_count": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "true_positive_count": 1
+        },
+        "release_runbook": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "state_transition": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "task_shard": {
+          "clean_control_count": 1,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 0,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        },
+        "terminal_log": {
+          "clean_control_count": 0,
+          "clean_control_false_positive_count": 0,
+          "clean_control_false_positive_rate": 0.0,
+          "f1": 0.0,
+          "false_negative_count": 2,
+          "false_positive_count": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "true_positive_count": 0
+        }
+      }
+    }
+  },
+  "hidden_label_leak_ids": [],
+  "hidden_labels_used_for_scoring": false,
+  "holdout_custody": {
+    "author_approval_required_for_unseal": true,
+    "cases_path": "data/v0.9/machine_evidence_cases.jsonl",
+    "cases_sha256": "bb95b48fd5902805a990b3fda09ce9b2c6344eb430e63ae0dc717c0eea035b45",
+    "claim_boundary": {
+      "adoption_claim_allowed": false,
+      "human_reviewer_claim_allowed": false,
+      "package_release_claim_allowed": false,
+      "provider_model_compatibility_claim_allowed": false,
+      "public_benchmark_claim_allowed": false
+    },
+    "created_date": "2026-06-08",
+    "custody_status": "sealed_not_scored_publicly",
+    "dataset_id": "agent-context-health-v0.9-machine-evidence-candidate",
+    "hidden_holdout_case_count": 6,
+    "hidden_holdout_case_ids": [
+      "ach-case-v09-019",
+      "ach-case-v09-020",
+      "ach-case-v09-021",
+      "ach-case-v09-022",
+      "ach-case-v09-023",
+      "ach-case-v09-024"
+    ],
+    "public_labels_path": "data/v0.9/machine_evidence_labels.jsonl",
+    "public_labels_sha256": "d73ba7167ce4ebdc62ad684ea597bac2120512712d95c5df9dbed1412adee543",
+    "publication_allowed_without_author_approval": false,
+    "schema_version": "ach-hidden-holdout-custody-v0.9",
+    "sealed_label_manifest_sha256": "f5499b82c8c2741414e5ec1dd87e46017f864fc0bd266507de4005fc9f58ec17",
+    "sealed_label_manifest_shape": {
+      "fields": [
+        "case_id",
+        "finding_type"
+      ],
+      "labels_available_to_default_scoring": false,
+      "labels_published": false
+    }
+  },
+  "human_reviewer_claim_allowed": false,
+  "machine_evidence_only": true,
+  "package_release_claim_allowed": false,
+  "provider_model_compatibility_claim_allowed": false,
+  "public_benchmark_claim_allowed": false,
+  "public_labels": "data/v0.9/machine_evidence_labels.jsonl",
+  "public_labels_sha256": "d73ba7167ce4ebdc62ad684ea597bac2120512712d95c5df9dbed1412adee543",
+  "publication_allowed": true,
+  "schema_version": "ach-machine-evidence-report-v0.9",
+  "status": "pass_machine_evidence_public_label_scoring",
+  "validation": {
+    "allowed_unlabeled_splits": [
+      "hidden_holdout"
+    ],
+    "case_count": 24,
+    "cases": "data/v0.9/machine_evidence_cases.jsonl",
+    "clean_control_count": 6,
+    "finding_types": [
+      "conflicting_policy",
+      "hidden_terminal_failure",
+      "missing_model_state_surface",
+      "missing_rollback",
+      "none",
+      "stale_claim",
+      "unbounded_consequence",
+      "unsafe_action_guidance",
+      "unsupported_release_claim"
+    ],
+    "label_count": 18,
+    "labels": "data/v0.9/machine_evidence_labels.jsonl",
+    "legacy_label_field_rows": 0,
+    "legacy_label_fields_allowed": false,
+    "positive_label_count": 12,
+    "unlabeled_case_count": 6,
+    "unlabeled_case_ids": [
+      "ach-case-v09-019",
+      "ach-case-v09-020",
+      "ach-case-v09-021",
+      "ach-case-v09-022",
+      "ach-case-v09-023",
+      "ach-case-v09-024"
+    ],
+    "unlabeled_splits": [
+      "hidden_holdout"
+    ]
+  }
+}

@@ -50,10 +50,38 @@ def _metric_block(items: set[tuple[str, str]], expected: set[tuple[str, str]], p
     }
 
 
-def score(labels_path: Path, predictions_path: Path) -> dict:
+def _clean_control_block(
+    *,
+    clean_control_case_ids: set[str],
+    predicted: set[tuple[str, str]],
+) -> dict:
+    clean_control_false_positives = {
+        (case_id, finding_type)
+        for case_id, finding_type in predicted
+        if case_id in clean_control_case_ids
+    }
+    clean_control_rate = (
+        len(clean_control_false_positives) / len(clean_control_case_ids)
+        if clean_control_case_ids
+        else 0.0
+    )
+    return {
+        "clean_control_count": len(clean_control_case_ids),
+        "clean_control_false_positive_count": len(clean_control_false_positives),
+        "clean_control_false_positive_rate": round(clean_control_rate, 4),
+    }
+
+
+def score(labels_path: Path, predictions_path: Path, cases_path: Path | None = None) -> dict:
     labels = read_jsonl(labels_path)
     predictions = read_jsonl(predictions_path)
+    cases = read_jsonl(cases_path) if cases_path else []
 
+    clean_control_case_ids = {
+        row["case_id"]
+        for row in labels
+        if row.get("finding_type") == "none" or not row.get("must_flag", True)
+    }
     expected = {
         (row["case_id"], row["finding_type"])
         for row in labels
@@ -92,8 +120,12 @@ def score(labels_path: Path, predictions_path: Path) -> dict:
         prediction_span = str(prediction_by_key[key].get("evidence_span", ""))
         span_scores.append(span_token_f1(label_span, prediction_span))
     mean_span = round(sum(span_scores) / len(span_scores), 4) if span_scores else 0.0
+    clean_control = _clean_control_block(
+        clean_control_case_ids=clean_control_case_ids,
+        predicted=predicted,
+    )
 
-    return {
+    report = {
         "labels": str(labels_path),
         "predictions": str(predictions_path),
         "expected_positive_count": len(expected),
@@ -104,6 +136,7 @@ def score(labels_path: Path, predictions_path: Path) -> dict:
         "precision": metrics["precision"],
         "recall": metrics["recall"],
         "f1": metrics["f1"],
+        **clean_control,
         "per_finding_type": per_finding_type,
         "evidence_span": {
             "evaluated_true_positive_count": len(span_scores),
@@ -112,14 +145,42 @@ def score(labels_path: Path, predictions_path: Path) -> dict:
         "false_positives": [{"case_id": case_id, "finding_type": finding_type} for case_id, finding_type in fp_items],
         "false_negatives": [{"case_id": case_id, "finding_type": finding_type} for case_id, finding_type in fn_items],
     }
+    if cases_path:
+        case_source_family = {
+            row["case_id"]: row.get("source_family") or row.get("benchmark_family") or row.get("source") or "unknown"
+            for row in cases
+            if row.get("case_id")
+        }
+        family_case_ids: dict[str, set[str]] = {}
+        for case_id, family in case_source_family.items():
+            family_case_ids.setdefault(family, set()).add(case_id)
+        per_source_family: dict[str, dict] = {}
+        for family, case_ids in sorted(family_case_ids.items()):
+            items = {
+                (case_id, finding_type)
+                for case_id, finding_type in expected | predicted
+                if case_id in case_ids
+            }
+            block = _metric_block(items, expected, predicted)
+            block.update(
+                _clean_control_block(
+                    clean_control_case_ids=clean_control_case_ids & case_ids,
+                    predicted={item for item in predicted if item[0] in case_ids},
+                )
+            )
+            per_source_family[family] = block
+        report["cases"] = str(cases_path)
+        report["per_source_family"] = per_source_family
+    return report
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Score Agent Context Health findings.")
+    parser.add_argument("--cases", type=Path)
     parser.add_argument("--labels", type=Path, required=True)
     parser.add_argument("--predictions", type=Path, required=True)
     args = parser.parse_args()
-    print(json.dumps(score(args.labels, args.predictions), indent=2, sort_keys=True))
+    print(json.dumps(score(args.labels, args.predictions, args.cases), indent=2, sort_keys=True))
     return 0
 
 

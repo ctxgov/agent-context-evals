@@ -1,0 +1,2 @@
+{"case_id": "ach-case-v09-003", "confidence": 0.55, "evidence_span": "FAILED", "finding_type": "hidden_terminal_failure", "note": "Fallback heuristic mode. Does not read labels; use --mode doctor with --ctxgov-root for CtxGov doctor invocation.", "source": "ctxgov_adapter_heuristic"}
+{"case_id": "ach-case-v09-010", "confidence": 0.55, "evidence_span": "missing", "finding_type": "unsupported_release_claim", "note": "Fallback heuristic mode. Does not read labels; use --mode doctor with --ctxgov-root for CtxGov doctor invocation.", "source": "ctxgov_adapter_heuristic"}

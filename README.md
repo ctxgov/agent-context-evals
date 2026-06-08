@@ -1,6 +1,6 @@
 # Agent Context Health Eval
 
-Status: public v0.8 evaluation-hardening artifact for
+Status: public v0.9 machine-evidence artifact for
 `ctxgov/agent-context-evals`.
 
 This repository is an evaluation artifact for AI-agent context health. It is
@@ -66,6 +66,12 @@ agent-context-evals/
       eval_hardening_cases.jsonl
       eval_hardening_labels.jsonl
       eval_hardening_manifest.json
+    v0.9/
+      machine_evidence_cases.jsonl
+      machine_evidence_labels.jsonl
+      machine_evidence_manifest.json
+      machine_evidence_splits.json
+      dataset_card.md
   adapters/
     offline_context_adapters.py
     v07_trace_adapters.py
@@ -85,6 +91,8 @@ agent-context-evals/
     blinded-label-sheet.csv
     reviewer-rubric.md
     label-adjudication-plan.md
+    reviewer-proxy-adjudication.json
+    reviewer-proxy-labels.jsonl
   demo/
     60-second-demo.gif
     60-second-demo-script.md
@@ -102,6 +110,8 @@ agent-context-evals/
     v0.6-results.md
     v0.7-results.md
     v0.8-results.md
+    v0.9-machine-evidence-report.md
+    v0.9-machine-evidence-report.json
   examples/
     clean_repo/
     stale_claim/
@@ -273,6 +283,19 @@ The v0.8 suite adds 50 public-safe hard negatives and 4 CtxGov v0.6.11
 self-audit cases. It also adds a blind reviewer protocol and adjudication
 template. This is local eval hardening only: No public benchmark claim. No provider/model call. No adoption claim. No package, hosted runtime, live adapter, or CLI beta claim.
 
+For v0.9 machine evidence:
+
+```bash
+python3 scripts/check_v09_machine_evidence_readiness.py
+python3 -m unittest tests.test_v09_machine_evidence_release -v
+```
+
+The v0.9 suite adds public labeled machine-evidence cases, clean controls,
+sealed hidden holdout custody, baseline/error-analysis output, and a
+reviewer-proxy adjudication fixture. This is local machine evidence only: No
+public benchmark claim. No provider/model call. No adoption claim. No human
+reviewer claim. No package, hosted runtime, live adapter, or CLI beta claim.
+
 ## Case Schema
 
 Each `data/cases.jsonl` row contains:
@@ -311,6 +334,9 @@ false-positive pressure with hazardous vocabulary in repaired, scoped, or
 negated context. These artifacts are useful for schema, scorer, adapter,
 workflow, and demo validation. They do not prove security coverage, agent
 safety, model reliability, provider compatibility, or real-world prevalence.
+The v0.9 machine-evidence release adds hidden holdout custody and reproducible
+local scoring, but it still does not replace independent human review or
+external adoption evidence.
 
 Before a public benchmark claim, this needs real trace-derived cases with
 reviewer approval, hard negative controls, independent reviewer labels, and a
@@ -330,13 +356,15 @@ Ready for public project surface:
 - v0.5 deterministic mutation data with 160 cases, 206 labels, 40 clean
   controls, multi-label scoring, and native CtxGov doctor adapter run
 - v0.6 adversarial hard negatives with 60 clean controls and span diagnostics
+- v0.9 machine-evidence release with sealed hidden holdout custody, baseline
+  scoring, and reviewer-proxy adjudication fixture
 
 Not ready for benchmark claims:
 
 - independent review of trace-derived cases
 - adjudicated reviewer labels
-- hidden holdout administration outside this public repo
-- public false positive and false negative analysis on reviewed labels
+- hidden holdout label unsealing outside author-controlled custody
+- public false positive and false negative analysis on independently reviewed labels
 
 The key v0.6 result is that the artifact now has both positive deterministic
 mutation coverage and adversarial clean controls. The 1.0000 v0.5 doctor score
@@ -347,4 +375,4 @@ adapter path, not general benchmark performance.
 
 - CtxGov main repo: `https://github.com/ctxgov/ctxgov`
 - CtxGov project page: `https://ctxgov.github.io/ctxgov/`
-- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.8.0`
+- Latest companion release: `https://github.com/ctxgov/agent-context-evals/releases/tag/v0.9.0`
